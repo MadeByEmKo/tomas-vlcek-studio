@@ -158,7 +158,7 @@ const STATIC_ARTICLES = [
 // ── Helper: get photo path ───────────────────────────────────
 function photoPath(p, filename) {
   const sub = p.subfolder ? `/${p.subfolder}` : '';
-  return `assets/${p.folder}${sub}/${filename}`;
+  return encodeURI(`assets/${p.folder}${sub}/${filename}`);
 }
 
 // ── Render: Projects grid ─────────────────────────────────────

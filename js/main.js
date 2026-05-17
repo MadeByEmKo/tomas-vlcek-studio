@@ -7,8 +7,8 @@
 // ── i18n ────────────────────────────────────────────────────
 const TRANSLATIONS = {
   cs: {
-    'nav.about':'O mně','nav.services':'Služby','nav.projects':'Projekty',
-    'nav.articles':'Články','nav.reviews':'Recenze','nav.contact':'Kontakt','nav.cta':'Kontaktujte mě',
+    'nav.about':'O mně','nav.services':'Služby','nav.projects':'Ukázky prací',
+    'nav.articles':'Zajímavosti','nav.inspiration':'Inspirace','nav.reviews':'Recenze','nav.contact':'Kontakt','nav.cta':'Kontaktujte mě',
     'hero.eyebrow':'Od roku 1998','hero.w1':'Navrhuji','hero.w2':'a realizuji','hero.w3':'interiéry',
     'hero.sub':'Pro zlepšení vašeho životního komfortu s dodržením vašeho životního stylu.',
     'hero.cta1':'Ukázky prací','hero.cta2':'Chci 3D návrh',
@@ -45,7 +45,7 @@ const TRANSLATIONS = {
   },
   en: {
     'nav.about':'About','nav.services':'Services','nav.projects':'Projects',
-    'nav.articles':'Articles','nav.reviews':'Reviews','nav.contact':'Contact','nav.cta':'Contact Me',
+    'nav.articles':'Insights','nav.inspiration':'Inspiration','nav.reviews':'Reviews','nav.contact':'Contact','nav.cta':'Contact Me',
     'hero.eyebrow':'Since 1998','hero.w1':'I design','hero.w2':'and realize','hero.w3':'interiors',
     'hero.sub':'Enhancing your quality of life while respecting your personal lifestyle.',
     'hero.cta1':'View Projects','hero.cta2':'Request 3D Design',
