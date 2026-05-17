@@ -27,6 +27,7 @@ function renderProjectDetail(lang) {
 
   document.title = `${name} — Tomáš Vlček`;
   document.getElementById('projectPageTitle').textContent = name;
+  document.getElementById('projectPageBreadcrumb').textContent = name;
   document.getElementById('projectPageSubtitle').textContent = project.kategorie || '';
   document.getElementById('projectNum').textContent = project.num || '';
   document.getElementById('projectName').textContent = name;
