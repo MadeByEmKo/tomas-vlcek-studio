@@ -35,6 +35,15 @@ function renderProjectDetail(lang) {
   document.getElementById('projectCta').textContent = ctaLabel;
   document.getElementById('projectHeroBg').style.backgroundImage = `url('${photoPath(project, project.photos[0])}')`;
 
+  const currentIndex = PROJECTS.findIndex(p => p.id === id);
+  const nextProject = PROJECTS[(currentIndex + 1) % PROJECTS.length];
+  const nextLabel = lang === 'en' ? 'Next project' : 'Další projekt';
+  const nextLink = document.getElementById('projectNextLink');
+  if (nextLink) {
+    nextLink.textContent = nextLabel;
+    nextLink.href = `project.html?id=${nextProject.id}`;
+  }
+
   const metaRows = [
     { key: designLabel, value: project.navrh || 'Tomáš Vlček' },
     { key: realLabel, value: project.realizace || 'Tomáš Vlček' }

@@ -11,10 +11,10 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <nav id="navbar" class="navbar">
+  <nav id="navbar" class="navbar navbar-white">
     <div class="nav-inner">
       <a href="index.html#hero" class="nav-logo" id="navLogoLink">
-        <div class="logo-wrap">
+        <div class="logo-wrap logo-wrap--transparent">
           <img src="assets/logo.png" alt="Tomáš Vlček — home Interiors & Design" class="logo-img logo-dark" id="logoDark">
           <span class="logo-text-fallback" id="logoFallback">TV <span>home Interiors & Design</span></span>
         </div>
@@ -62,9 +62,8 @@
         <span id="projectPageBreadcrumb">Projekt</span>
       </div>
       <p class="eyebrow" data-i18n="proj.eyebrow">Realizace</p>
-      <h1 class="section-h" id="projectPageTitle">Projekt</h1>
+      <h1 class="section-h project-title-bg" id="projectPageTitle">Projekt</h1>
       <p class="section-sub" id="projectPageSubtitle"></p>
-      <a href="index.html#projekty" class="btn-primary mt-lg" data-i18n="proj.back">Zpět na ukázky</a>
     </div>
   </section>
 
@@ -82,7 +81,10 @@
         <h2 class="project-name" id="projectName"></h2>
         <div class="project-meta" id="projectMeta"></div>
         <p class="body-text project-desc" id="projectDescription"></p>
-        <a href="index.html#kontakt" class="btn-primary project-cta" id="projectCta">Poptat podobný projekt</a>
+        <div class="project-actions">
+          <a href="index.html#kontakt" class="btn-primary project-cta" id="projectCta">Poptat podobný projekt</a>
+          <a href="#" class="btn-nav" id="projectNextLink">Další projekt</a>
+        </div>
       </div>
     </div>
   </section>
