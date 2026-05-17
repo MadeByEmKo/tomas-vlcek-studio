@@ -146,8 +146,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .navbar.navbar-white .btn-nav { border-color: var(--primary); }
 .navbar.navbar-white .logo-wrap { background: transparent; padding: 0; }
-.navbar.navbar-white .logo-img { filter: none; }
+.navbar.navbar-white .logo-img { filter: none; mix-blend-mode: normal; }
 .navbar.navbar-white .nav-link::after {background: var(--primary);}
+.navbar.scrolled .logo-light { display: inline; }
+.navbar.scrolled .logo-dark { display: none; }
 .nav-inner { max-width: 1240px; margin: 0 auto; padding: 0 2rem; height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
 .nav-logo { flex-shrink: 0; }
 .logo-wrap { display: flex; align-items: center; background: transparent; padding: 0; border-radius: 0; }
@@ -155,8 +157,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .logo-light { display: none; }
 .navbar.navbar-white .logo-light { display: inline; }
 .navbar.navbar-white .logo-dark { display: none; }
-.navbar:not(.navbar-white) .logo-dark { display: inline; }
-.navbar:not(.navbar-white) .logo-light { display: none; }
+.navbar:not(.navbar-white):not(.scrolled) .logo-dark { display: inline; }
+.navbar:not(.navbar-white):not(.scrolled) .logo-light { display: none; }
 .navbar.scrolled .logo-img { mix-blend-mode: normal; }
 .logo-text-fallback { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; display: none; }
 .logo-text-fallback span { font-size: .7rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); display: block; }
