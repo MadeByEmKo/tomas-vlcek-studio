@@ -5,7 +5,7 @@
 'use strict';
 
 // ── CONFIG — replace with your Apps Script Web App URL ──────
-const CMS_API_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+const CMS_API_URL = 'https://script.google.com/macros/s/AKfycbw2nek2df3jPkD2Su9vvMOMEBnAEMn0eM2MvEc3PmIJxtqSv1HnSV9MZzKQgd3Bql05aQ/exec';
 
 // ── Static fallback data (used until Google Sheets is set up)
 const STATIC = {
