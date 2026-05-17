@@ -1,193 +1,207 @@
 /* ============================================================
-   cms.js — Lokální alba + Google Sheets fallback
+   cms.js — Načítání z asset-manifest.json + Google Sheets
+   Fotky rozděleny do záložek: Realizace / Původní / 3D
    ============================================================ */
 'use strict';
 
 const CMS_API_URL = 'https://script.google.com/macros/s/AKfycbw2nek2df3jPkD2Su9vvMOMEBnAEMn0eM2MvEc3PmIJxtqSv1HnSV9MZzKQgd3Bql05aQ/exec';
-const ASSET_MANIFEST_URL = 'assets/asset-manifest.json';
+const MANIFEST_URL = 'assets/asset-manifest.json';
 
-window.PROJECTS = [];
-window.INSPIRATIONS = [];
-window.assetManifestPromise = null;
+// Globální stav
+let PROJECTS = [];
+let INSPIRATIONS = { folder: '', photos: [] };
+let _manifestLoaded = false;
+let _manifestPromise = null;
 
-async function loadAssetManifest() {
-  if (!window.assetManifestPromise) {
-    window.assetManifestPromise = fetch(ASSET_MANIFEST_URL)
-      .then(response => {
-        if (!response.ok) throw new Error(`Unable to load asset manifest: ${response.status}`);
-        return response.json();
-      })
-      .then(async data => {
-        const rawProjects = (data.projects || []);
-        const projects = rawProjects.map(p => ({
-          id: p.id,
-          num: p.num,
-          folder: p.folder,
-          // manifest title is fallback; we'll try to override from text file
-          nazev: p.title || p.folder,
-          nazev_en: p.title || p.folder,
-          popis: p.description || '',
-          popis_en: p.description || '',
-          kategorie: p.category || 'Realizace',
-          navrh: p.design || '',
-          realizace: p.realizace || '',
-          vyroba: p.vyroba || '',
-          photos: p.photos || [],
-          textFile: p.textFile || null,
-        }));
-
-        // If a project provides a textFile, fetch and parse it for 'Název projektu' and 'Typ realizace'
-        await Promise.all(projects.map(async proj => {
-          if (!proj.textFile) return;
-          try {
-            const url = encodeURI(`assets/${proj.folder}/${proj.textFile}`);
-            const r = await fetch(url);
-            if (!r.ok) return;
-            const txt = await r.text();
-            const lines = txt.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
-            lines.forEach(line => {
-              const parts = line.split(':');
-              if (parts.length < 2) return;
-              const key = parts[0].trim().toLowerCase();
-              const value = parts.slice(1).join(':').trim();
-              if (key.includes('název') || key.includes('nazev')) {
-                proj.nazev_txt = value;
-              }
-              if (key.includes('typ') || key.includes('druh') || key.includes('kategorie')) {
-                proj.typ_realizace = value;
-              }
-            });
-          } catch (err) {
-            console.warn('Failed to load textFile for', proj.folder, err);
-          }
-        }));
-
-        window.PROJECTS = projects;
-        window.INSPIRATIONS = data.inspirations || [];
-        return { projects: window.PROJECTS, inspirations: window.INSPIRATIONS };
-      })
-      .catch(error => {
-        console.warn('Asset manifest loading failed:', error);
-        window.PROJECTS = [];
-        window.INSPIRATIONS = [];
-        return { projects: [], inspirations: [] };
-      });
-  }
-  return window.assetManifestPromise;
+// ── Načti manifest ────────────────────────────────────────────
+function loadManifest() {
+  if (_manifestPromise) return _manifestPromise;
+  _manifestPromise = fetch(MANIFEST_URL)
+    .then(r => { if (!r.ok) throw new Error('Manifest not found'); return r.json(); })
+    .then(data => {
+      // Seřaď projekty podle num (01, 02, ...)
+      PROJECTS = (data.projects || []).sort((a, b) => a.num.localeCompare(b.num));
+      INSPIRATIONS = data.inspirations || { folder: '', photos: [] };
+      _manifestLoaded = true;
+      return data;
+    })
+    .catch(err => {
+      console.warn('asset-manifest.json se nepodařilo načíst:', err);
+      _manifestLoaded = true;
+      return {};
+    });
+  return _manifestPromise;
 }
 
-// Articles removed — no static fallback
+// ── Statické záložní články ───────────────────────────────────
+const STATIC_ARTICLES = [
+  { id:1, nadpis:'Nápady pro dětský svět', nadpis_en:"Ideas for Children's Spaces",
+    perex:'Jak navrhnout dětský pokoj, který poroste s vaším dítětem.', perex_en:"How to design a children's room that grows with your child.",
+    foto:'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80', stitek:'Design', stitek_en:'Design',
+    obsah:'Dětský pokoj je jedním z nejdůležitějších prostorů v domě. Měl by být bezpečný, stimulující a zároveň schopný adaptace s rostoucími potřebami dítěte. Klíčem je flexibilní nábytek a neutrální barevná paleta doplněná hravými akcenty.',
+    obsah_en:"A children's room should be safe, stimulating and adaptable. The key is flexible furniture and a neutral colour palette with playful accents." },
+  { id:2, nadpis:'Mini Caffè Concept', nadpis_en:'Mini Caffè Concept',
+    perex:'Inspirace pro tvorbu útulné kavárny s velkým designovým nápadem.', perex_en:'Inspiration for creating a cosy café with bold design ideas.',
+    foto:'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80', stitek:'Komerční', stitek_en:'Commercial',
+    obsah:'Malé kavárny a bistro koncepty zažívají velký boom. Úspěchem je dokonalé využití každého centimetru prostoru, konzistentní vizuální identita a materiály, které mluví samy za sebe.',
+    obsah_en:'Small cafés are booming. Success lies in perfect use of every centimetre of space and materials that speak for themselves.' },
+  { id:3, nadpis:'Barvy v interiéru a exteriéru', nadpis_en:'Colours in Interior & Exterior',
+    perex:'Jak správně kombinovat barvy interiéru s exteriérem stavby.', perex_en:'How to harmoniously combine interior colours with the exterior.',
+    foto:'https://images.unsplash.com/photo-1560185127-6a6ed65f59f5?w=800&q=80', stitek:'Inspirace', stitek_en:'Inspiration',
+    obsah:'Barevné schéma bytu nebo domu by mělo vycházet z přirozeného světla v prostoru a harmonovat s exteriérem. Neutrální základna dává svobodu ve výběru doplňků a nábytku.',
+    obsah_en:'The colour scheme should stem from natural light and harmonise with the exterior. A neutral base gives freedom in choosing accessories.' },
+  { id:4, nadpis:'Dekton — materiál budoucnosti', nadpis_en:'Dekton — Material of the Future',
+    perex:'Inovativní povrchový materiál Dekton a jeho využití v designu.', perex_en:'The innovative Dekton surface material in modern design.',
+    foto:'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80', stitek:'Materiály', stitek_en:'Materials',
+    obsah:'Deskovina Dekton je materiál na bázi přírodního skla, keramiky a křemene. Je extrémně pevný, odolný proti škrábancům, tepelně odolný a nízkoúdržbový.',
+    obsah_en:'Dekton is based on natural glass, ceramics and quartz. Extremely strong, scratch-resistant, heat-resistant and low-maintenance.' },
+];
 
-// ── Helper: get photo path ───────────────────────────────────
-function photoPath(p, photo) {
-  // photo can be a string filename or an object {file, thumb}
-  const sub = p.subfolder ? `/${p.subfolder}` : '';
-  const filename = (typeof photo === 'string') ? photo : (photo && photo.file ? photo.file : '');
-  return encodeURI(`assets/${p.folder}${sub}/${filename}`);
+// ── Helper: URL cesta k fotce ─────────────────────────────────
+function photoUrl(project, groupName, filename) {
+  const base = `assets/${project.folder}`;
+  // Zkontroluj jestli je skupina (Realizace je přímo v root nebo ve složce)
+  const hasGroup = project.photoGroups && project.photoGroups[groupName] !== undefined;
+  if (hasGroup && groupName !== 'Realizace') {
+    return encodeURI(`${base}/${groupName}/${filename}`);
+  }
+  // Realizace: zkus root, pak složku
+  return encodeURI(`${base}/${filename}`);
 }
 
 // ── Render: Projects grid ─────────────────────────────────────
 function renderProjects(lang) {
   const grid = document.getElementById('projectGrid');
-  if (!grid) return;
+  if (!grid || !PROJECTS.length) { if(grid) grid.innerHTML = '<p style="text-align:center;color:#aaa;padding:3rem">Projekty se načítají...</p>'; return; }
+
   grid.innerHTML = PROJECTS.map(p => {
-    const name  = lang === 'en' && p.nazev_en ? p.nazev_en : p.nazev;
-    const cover = photoPath(p, p.photos[0]);
-    const viewTxt = lang === 'en' ? 'View project →' : 'Zobrazit realizaci →';
+    const name  = lang === 'en' && p.title_en ? p.title_en : p.title;
+    // Titulní foto — z Realizace, nebo z kořene
+    const groups = p.photoGroups || {};
+    const realPhotos = groups['Realizace'] || groups['realizace'] || [];
+    const firstPhoto = realPhotos[0] || Object.values(groups).flat()[0];
+    const coverSrc = firstPhoto ? photoUrl(p, 'Realizace', firstPhoto) : 'assets/hero.jpg';
+    const viewTxt  = lang === 'en' ? 'View project →' : 'Zobrazit realizaci →';
+    const catLabel = p.category === 'komerční' ? (lang==='en'?'Commercial':'Komerční') : (lang==='en'?'Residential':'Rezidenční');
+
     return `
-    <a href="project.html?id=${p.id}" class="proj-card reveal" data-id="${p.id}">
-      <img src="${cover}" alt="${name}" loading="lazy" onerror="this.src='assets/hero.jpg'">
+    <div class="proj-card reveal" data-id="${p.id}" onclick="openProject(${p.id})">
+      <img src="${coverSrc}" alt="${name}" loading="lazy" onerror="this.src='assets/hero.jpg'">
       <div class="proj-overlay">
-        <p class="proj-cat">${p.num} — ${p.kategorie || 'Realizace'}</p>
+        <p class="proj-cat">${p.num} — ${catLabel}</p>
         <p class="proj-name">${name}</p>
         <p class="proj-arrow">${viewTxt}</p>
       </div>
-    </a>`;
+    </div>`;
   }).join('');
+
   grid.querySelectorAll('.reveal').forEach((el, i) => {
-    setTimeout(() => el.classList.add('visible'), 80 * i);
+    setTimeout(() => el.classList.add('visible'), 60 * i);
   });
   window._currentLang = lang;
 }
 
-function renderInspiration(lang) {
-  const grid = document.getElementById('inspirationGrid');
-  if (!grid) return;
-  grid.innerHTML = INSPIRATIONS.map((album, idx) => {
-    const title = album.title || album.folder;
-    const desc = album.description ? album.description.split('\n')[0] : '';
-    const cover = album.photos[0] ? photoPath(album, album.photos[0]) : 'assets/hero.jpg';
-    const viewTxt = lang === 'en' ? 'View inspiration →' : 'Zobrazit inspiraci →';
-    return `
-      <button type="button" class="insp-card reveal" onclick="openInspirationLightbox(${idx})">
-        <img src="${cover}" alt="${title}" loading="lazy" onerror="this.src='assets/hero.jpg'">
-        <div class="insp-overlay">
-          <p class="insp-title">${title}</p>
-          ${desc ? `<p class="insp-desc">${desc}</p>` : ''}
-          <span class="insp-arrow">${viewTxt}</span>
-        </div>
-      </button>`;
-  }).join('');
-  grid.querySelectorAll('.reveal').forEach((el, i) => {
-    setTimeout(() => el.classList.add('visible'), 80 * i);
-  });
-}
-
-window.openInspirationLightbox = function(albumIndex) {
-  const album = INSPIRATIONS[albumIndex];
-  if (!album) return;
-  lbPhotos = album.photos.map(f => photoPath(album, f));
-  lbIdx = 0;
-  updateLightbox();
-  document.getElementById('lightbox').classList.add('open');
-}
-
-// ── Render: Project Modal ─────────────────────────────────────
+// ── Render: Project Modal (záložky Realizace / Původní / 3D) ──
 window.openProject = function(id) {
   const lang = window._currentLang || 'cs';
   const p = PROJECTS.find(x => x.id === id);
   if (!p) return;
-  const name  = lang === 'en' && p.nazev_en ? p.nazev_en : p.nazev;
-  const desc  = lang === 'en' && p.popis_en ? p.popis_en : p.popis;
-  const lbl   = { navrh: lang==='en'?'Design':'Návrh', real: lang==='en'?'Realization':'Realizace', vyr: lang==='en'?'Production':'Výroba', ctaL: lang==='en'?'Request similar project':'Poptejte podobný projekt' };
 
-  const photos = p.photos.map(f => photoPath(p, f));
-  const thumbsHtml = photos.map((src, i) =>
-    `<img src="${src}" class="modal-thumb${i===0?' active':''}" data-idx="${i}" alt="" loading="lazy" onerror="this.style.display='none'">`
-  ).join('');
+  const name = lang === 'en' && p.title_en ? p.title_en : p.title;
+  const desc = lang === 'en' && p.description_en ? p.description_en : p.description || '';
+
+  const lbl = {
+    navrh:  lang==='en' ? 'Design'       : 'Návrh',
+    real:   lang==='en' ? 'Realization'  : 'Realizace',
+    vyr:    lang==='en' ? 'Production'   : 'Výroba nábytku',
+    stav:   lang==='en' ? 'Construction' : 'Stavební příprava',
+    cta:    lang==='en' ? 'Request similar project' : 'Poptejte podobný projekt',
+    tabs: { 'Realizace': lang==='en'?'Realization':'Realizace', 'Původní': lang==='en'?'Before':'Původní stav', '3D': '3D vizualizace' }
+  };
+
+  const groups = p.photoGroups || {};
+  // Záložky — jen ty které mají fotky, vždy Realizace první
+  const tabOrder = ['Realizace', 'Původní', '3D'];
+  const availTabs = tabOrder.filter(t => groups[t] && groups[t].length > 0);
+  if (availTabs.length === 0) { console.warn('No photos for project', p.id); return; }
+
+  const firstTab  = availTabs[0];
+  const firstPhotos = groups[firstTab];
+  const firstSrc  = photoUrl(p, firstTab, firstPhotos[0]);
+
+  // Záložky HTML
+  const tabsHtml = availTabs.length > 1
+    ? `<div class="modal-tabs">${availTabs.map((t,i) => `<button class="modal-tab${i===0?' active':''}" data-tab="${t}">${lbl.tabs[t] || t}</button>`).join('')}</div>`
+    : '';
+
+  // Thumbnaily (první záložka)
+  const thumbsHtml = firstPhotos.map((f, i) => {
+    const src = photoUrl(p, firstTab, f);
+    return `<img src="${src}" class="modal-thumb${i===0?' active':''}" data-idx="${i}" data-tab="${firstTab}" alt="" loading="lazy" onerror="this.style.display='none'">`;
+  }).join('');
+
+  // Meta info
+  const metaRows = [
+    p.design    ? `<div class="modal-meta-row"><span class="modal-meta-key">${lbl.navrh}</span><span>${p.design}</span></div>` : '',
+    p.realizace ? `<div class="modal-meta-row"><span class="modal-meta-key">${lbl.real}</span><span>${p.realizace}</span></div>` : '',
+    p.vyroba    ? `<div class="modal-meta-row"><span class="modal-meta-key">${lbl.vyr}</span><span>${p.vyroba}</span></div>` : '',
+    p.stavebni  ? `<div class="modal-meta-row"><span class="modal-meta-key">${lbl.stav}</span><span>${p.stavebni}</span></div>` : '',
+  ].filter(Boolean).join('');
 
   document.getElementById('modalInner').innerHTML = `
     <div class="modal-gallery">
-      <img id="modalMainImg" class="modal-main-img" src="${photos[0]}" alt="${name}" onclick="openLightbox(${id}, 0)">
-      <div class="modal-thumbs">${thumbsHtml}</div>
+      ${tabsHtml}
+      <img id="modalMainImg" class="modal-main-img" src="${firstSrc}" alt="${name}" onclick="openLightbox(${p.id}, '${firstTab}', 0)" style="cursor:zoom-in">
+      <div class="modal-thumbs" id="modalThumbs">${thumbsHtml}</div>
     </div>
     <div class="modal-info">
       <p class="modal-num">${p.num}</p>
       <h2 class="modal-title">${name}</h2>
-      <div class="modal-meta">
-        <div class="modal-meta-row"><span class="modal-meta-key">${lbl.navrh}</span><span>${p.navrh || 'Tomáš Vlček'}</span></div>
-        <div class="modal-meta-row"><span class="modal-meta-key">${lbl.real}</span><span>${p.realizace || 'Tomáš Vlček'}</span></div>
-        ${p.vyroba ? `<div class="modal-meta-row"><span class="modal-meta-key">${lbl.vyr}</span><span>${p.vyroba}</span></div>` : ''}
-      </div>
-      <p class="modal-desc">${desc}</p>
-      <a href="#kontakt" class="btn-primary modal-cta" onclick="closeProjectModal()">${lbl.ctaL}</a>
+      ${metaRows ? `<div class="modal-meta">${metaRows}</div>` : ''}
+      ${desc ? `<p class="modal-desc">${desc}</p>` : ''}
+      <a href="#kontakt" class="btn-primary modal-cta" onclick="closeProjectModal()">${lbl.cta}</a>
     </div>`;
 
-  // Thumb click → change main image
+  // Záložky — přepínání
+  document.querySelectorAll('.modal-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tab = btn.dataset.tab;
+      document.querySelectorAll('.modal-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const tabPhotos = groups[tab] || [];
+      const newThumbs = tabPhotos.map((f, i) => {
+        const src = photoUrl(p, tab, f);
+        return `<img src="${src}" class="modal-thumb${i===0?' active':''}" data-idx="${i}" data-tab="${tab}" alt="" loading="lazy" onerror="this.style.display='none'">`;
+      }).join('');
+      document.getElementById('modalThumbs').innerHTML = newThumbs;
+      if (tabPhotos[0]) {
+        document.getElementById('modalMainImg').src = photoUrl(p, tab, tabPhotos[0]);
+        document.getElementById('modalMainImg').onclick = () => openLightbox(p.id, tab, 0);
+      }
+      attachThumbEvents(p, groups);
+    });
+  });
+
+  attachThumbEvents(p, groups);
+
+  document.getElementById('projectModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+};
+
+function attachThumbEvents(p, groups) {
   document.querySelectorAll('.modal-thumb').forEach(th => {
     th.addEventListener('click', () => {
       document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
       th.classList.add('active');
-      document.getElementById('modalMainImg').src = photos[+th.dataset.idx];
-      document.getElementById('modalMainImg').onclick = () => openLightbox(id, +th.dataset.idx);
+      const tab = th.dataset.tab;
+      const idx = +th.dataset.idx;
+      const photos = groups[tab] || [];
+      const src = photoUrl(p, tab, photos[idx]);
+      document.getElementById('modalMainImg').src = src;
+      document.getElementById('modalMainImg').onclick = () => openLightbox(p.id, tab, idx);
     });
   });
-
-  const modal = document.getElementById('projectModal');
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  window._activeLightboxPhotos = photos;
-};
+}
 
 window.closeProjectModal = function() {
   document.getElementById('projectModal').classList.remove('open');
@@ -199,59 +213,128 @@ document.getElementById('modalOverlay')?.addEventListener('click', closeProjectM
 // ── Lightbox ─────────────────────────────────────────────────
 let lbPhotos = [], lbIdx = 0;
 
-window.openLightbox = function(projectId, startIdx) {
+window.openLightbox = function(projectId, tabName, startIdx) {
   const p = PROJECTS.find(x => x.id === projectId);
   if (!p) return;
-  lbPhotos = p.photos.map(f => photoPath(p, f));
+  const groups = p.photoGroups || {};
+  const tabPhotos = groups[tabName] || [];
+  lbPhotos = tabPhotos.map(f => photoUrl(p, tabName, f));
   lbIdx = startIdx || 0;
   updateLightbox();
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow = 'hidden';
 };
 
+window.openInspirationLightbox = function(startIdx) {
+  const folder = INSPIRATIONS.folder || 'Inspirace Dům 6';
+  lbPhotos = (INSPIRATIONS.photos || []).map(f => encodeURI(`assets/${folder}/${f}`));
+  lbIdx = startIdx;
+  updateLightbox();
+  document.getElementById('lightbox').classList.add('open');
+};
+
 function updateLightbox() {
-  document.getElementById('lbImg').src = lbPhotos[lbIdx];
-  document.getElementById('lbCounter').textContent = `${lbIdx + 1} / ${lbPhotos.length}`;
+  document.getElementById('lbImg').src = lbPhotos[lbIdx] || '';
+  document.getElementById('lbCounter').textContent = lbPhotos.length > 0 ? `${lbIdx + 1} / ${lbPhotos.length}` : '';
 }
 
-document.getElementById('lbClose')?.addEventListener('click', () => {
-  document.getElementById('lightbox').classList.remove('open');
-});
-document.getElementById('lbOverlay')?.addEventListener('click', () => {
-  document.getElementById('lightbox').classList.remove('open');
-});
-document.getElementById('lbPrev')?.addEventListener('click', () => {
-  lbIdx = (lbIdx - 1 + lbPhotos.length) % lbPhotos.length;
-  updateLightbox();
-});
-document.getElementById('lbNext')?.addEventListener('click', () => {
-  lbIdx = (lbIdx + 1) % lbPhotos.length;
-  updateLightbox();
-});
+document.getElementById('lbClose')?.addEventListener('click', () => { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; });
+document.getElementById('lbOverlay')?.addEventListener('click', () => { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; });
+document.getElementById('lbPrev')?.addEventListener('click', () => { lbIdx = (lbIdx - 1 + lbPhotos.length) % lbPhotos.length; updateLightbox(); });
+document.getElementById('lbNext')?.addEventListener('click', () => { lbIdx = (lbIdx + 1) % lbPhotos.length; updateLightbox(); });
 document.addEventListener('keydown', e => {
-  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  const lb = document.getElementById('lightbox');
+  if (!lb?.classList.contains('open')) return;
   if (e.key === 'ArrowLeft')  { lbIdx = (lbIdx - 1 + lbPhotos.length) % lbPhotos.length; updateLightbox(); }
   if (e.key === 'ArrowRight') { lbIdx = (lbIdx + 1) % lbPhotos.length; updateLightbox(); }
-  if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open');
+  if (e.key === 'Escape') { lb.classList.remove('open'); document.body.style.overflow = ''; }
 });
 
-// ── Render: Articles ─────────────────────────────────────────
-// Articles removed — functions no longer needed
+// ── Render: Articles ──────────────────────────────────────────
+function renderArticles(data, lang) {
+  const grid = document.getElementById('articlesGrid');
+  if (!grid) return;
+  grid.innerHTML = data.map(a => {
+    const title   = lang === 'en' && a.nadpis_en ? a.nadpis_en : a.nadpis;
+    const excerpt = lang === 'en' && a.perex_en  ? a.perex_en  : a.perex;
+    const tag     = lang === 'en' && a.stitek_en ? a.stitek_en : a.stitek;
+    const more    = lang === 'en' ? 'Read more' : 'Číst více';
+    const foto    = a.foto || a.foto_url || '';
+    return `
+    <div class="art-card reveal" onclick="openArticleModal(${a.id})">
+      <div class="art-thumb">${foto ? `<img src="${foto}" alt="${title}" loading="lazy">` : '<div style="background:var(--bg-soft);height:100%"></div>'}</div>
+      <div class="art-body">
+        <p class="art-tag">${tag || ''}</p>
+        <h3 class="art-title">${title}</h3>
+        <p class="art-excerpt">${excerpt}</p>
+        <span class="art-more">${more} →</span>
+      </div>
+    </div>`;
+  }).join('');
+  window._articleData = data;
+  grid.querySelectorAll('.reveal').forEach((el, i) => setTimeout(() => el.classList.add('visible'), 80 * i));
+}
 
-// ── Main render ──────────────────────────────────────────────
-window.renderCMS = async function(lang) {
+window.openArticleModal = function(id) {
+  const lang = window._currentLang || 'cs';
+  const a = (window._articleData || STATIC_ARTICLES).find(x => x.id === id);
+  if (!a) return;
+  const title   = lang === 'en' && a.nadpis_en ? a.nadpis_en : a.nadpis;
+  const content = lang === 'en' && a.obsah_en  ? a.obsah_en  : a.obsah || '';
+  const tag     = lang === 'en' && a.stitek_en ? a.stitek_en : a.stitek;
+  const foto    = a.foto || a.foto_url || '';
+  document.getElementById('modalInner').innerHTML = `
+    <div style="grid-column:1/-1">
+      ${foto ? `<img src="${foto}" alt="${title}" style="width:100%;max-height:360px;object-fit:cover;">` : ''}
+      <div style="padding:2.5rem 2rem">
+        <p class="modal-num">${tag || ''}</p>
+        <h2 class="modal-title">${title}</h2>
+        <p class="modal-desc">${content}</p>
+      </div>
+    </div>`;
+  document.getElementById('projectModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+};
+
+// ── Render: Inspiration ───────────────────────────────────────
+function renderInspiration() {
+  const grid = document.getElementById('inspirationGrid');
+  if (!grid) return;
+  const folder  = INSPIRATIONS.folder || 'Inspirace Dům 6';
+  const photos  = INSPIRATIONS.photos || [];
+  if (!photos.length) { grid.style.display = 'none'; return; }
+  grid.innerHTML = photos.map((f, i) => {
+    const src = encodeURI(`assets/${folder}/${f}`);
+    return `<div class="ins-item reveal" onclick="openInspirationLightbox(${i})">
+      <img src="${src}" alt="Inspirace ${i+1}" loading="lazy" onerror="this.parentElement.style.display='none'">
+    </div>`;
+  }).join('');
+  grid.querySelectorAll('.reveal').forEach((el, i) => setTimeout(() => el.classList.add('visible'), 60 * i));
+}
+
+// ── Main renderCMS (voláno z main.js při změně jazyka) ────────
+window.renderCMS = function(lang) {
   lang = lang || 'cs';
   window._currentLang = lang;
 
-  await loadAssetManifest();
+  loadManifest().then(() => {
+    renderProjects(lang);
+    renderInspiration();
+  });
 
-  // Projects always from local albums
-  renderProjects(lang);
-
-  // Inspiration
-  renderInspiration(lang);
-
-  // Articles removed — no remote fetch or rendering
+  // Články: nejdřív API, fallback statické
+  if (CMS_API_URL && !CMS_API_URL.includes('YOUR_APPS_SCRIPT')) {
+    fetch(`${CMS_API_URL}?action=articles`)
+      .then(r => r.json())
+      .then(data => {
+        const arts = (data.articles || []).map(o => ({ ...o, foto: o.foto || o.foto_url || '' }));
+        renderArticles(arts.length ? arts : STATIC_ARTICLES, lang);
+      })
+      .catch(() => renderArticles(STATIC_ARTICLES, lang));
+  } else {
+    renderArticles(STATIC_ARTICLES, lang);
+  }
 };
 
+// Spuštění
 window.renderCMS(localStorage.getItem('tv_lang') || 'cs');

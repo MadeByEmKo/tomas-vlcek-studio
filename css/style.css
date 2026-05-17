@@ -153,16 +153,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .nav-inner { max-width: 1240px; margin: 0 auto; padding: 0 2rem; height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
 .nav-logo { flex-shrink: 0; }
 .logo-wrap { display: flex; align-items: center; background: transparent; padding: 0; border-radius: 0; }
-.logo-img { height: 52px; width: auto; mix-blend-mode: multiply; transition: filter .4s, mix-blend-mode .4s; }
-.logo-light { display: none; }
-.navbar.navbar-white .logo-light { display: inline; }
-.navbar.navbar-white .logo-dark { display: none; }
-.navbar:not(.navbar-white):not(.scrolled) .logo-dark { display: inline; }
-.navbar:not(.navbar-white):not(.scrolled) .logo-light { display: none; }
-.navbar.scrolled .logo-img { mix-blend-mode: normal; }
+/* Logo: na tmavém pozadí (hero) -> bílé; po scrollu -> přirozené barvy */
+.logo-img { height: 52px; width: auto; transition: filter .4s; }
+.navbar:not(.scrolled):not(.navbar-white) .logo-img { filter: brightness(0) invert(1); }
+.navbar.scrolled .logo-img { filter: none; }
+.navbar.navbar-white .logo-img { filter: none; }
 .logo-text-fallback { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; display: none; }
 .logo-text-fallback span { font-size: .7rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); display: block; }
-.footer-logo { height: 52px; width: auto; filter: brightness(0) invert(0); mix-blend-mode: multiply; }
+/* Footer logo: na tmavém bg viditelné bílé */
+.footer-logo { height: 52px; width: auto; filter: brightness(0) invert(1); margin-bottom: 1rem; }
 .nav-links { display: flex; align-items: center; gap: 2.2rem; }
 .nav-link { font-size: .78rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; position: relative; padding-bottom: 2px; }
 .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--gold); transition: width .3s var(--ease); }
@@ -523,17 +522,22 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ---------- Project Modal ---------- */
 .modal-box-wide { max-width: 1000px; padding: 0; overflow: hidden; }
 .modal-inner { display: grid; grid-template-columns: 1fr 340px; min-height: 500px; }
-.modal-gallery { position: relative; background: #0a0805; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.modal-main-img { width: 100%; height: auto; max-height: 70vh; object-fit: contain; display: block; }
-.modal-thumbs { display: flex; gap: .4rem; padding: .6rem; overflow-x: auto; background: rgba(0,0,0,.6); }
-.modal-thumb { width: 64px; height: 48px; object-fit: cover; opacity: .55; cursor: pointer; border-radius: 2px; flex-shrink: 0; transition: opacity .25s; border: 1.5px solid transparent; }
+.modal-gallery { background: #0a0805; display: flex; flex-direction: column; }
+/* Záložky Realizace / Původní / 3D */
+.modal-tabs { display: flex; background: rgba(0,0,0,.75); flex-shrink: 0; }
+.modal-tab { padding: .65rem 1.3rem; font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.45); cursor: pointer; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
+.modal-tab.active { color: var(--gold-lt); border-bottom-color: var(--gold-lt); }
+.modal-tab:hover:not(.active) { color: rgba(255,255,255,.75); }
+.modal-main-img { width: 100%; flex: 1; object-fit: cover; min-height: 300px; max-height: 420px; cursor: zoom-in; display: block; }
+.modal-thumbs { display: flex; gap: .4rem; padding: .6rem; overflow-x: auto; background: rgba(0,0,0,.7); flex-shrink: 0; scrollbar-width: thin; scrollbar-color: var(--gold) transparent; }
+.modal-thumb { width: 64px; height: 48px; object-fit: cover; opacity: .5; cursor: pointer; border-radius: 2px; flex-shrink: 0; transition: opacity .2s; border: 1.5px solid transparent; }
 .modal-thumb.active, .modal-thumb:hover { opacity: 1; border-color: var(--gold); }
 .modal-info { padding: 2.5rem 2rem; overflow-y: auto; background: var(--bg); }
 .modal-num { font-size: .65rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: .5rem; }
 .modal-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; margin-bottom: 1.2rem; line-height: 1.2; }
 .modal-meta { display: flex; flex-direction: column; gap: .6rem; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
 .modal-meta-row { display: flex; gap: .8rem; font-size: .82rem; }
-.modal-meta-key { font-weight: 600; color: var(--muted); min-width: 80px; }
+.modal-meta-key { font-weight: 600; color: var(--muted); min-width: 90px; flex-shrink: 0; }
 .modal-desc { font-size: .9rem; line-height: 1.8; color: var(--muted); }
 .modal-cta { display: inline-flex; margin-top: 1.5rem; }
 
@@ -598,7 +602,7 @@ a.contact-val:hover { color: var(--gold); }
 /* ---------- Footer ---------- */
 .footer { background: var(--primary); color: rgba(255,255,255,.75); padding: 4rem 0 2rem; }
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-.footer-logo { height: 52px; width: auto; filter: none; mix-blend-mode: normal; margin-bottom: 1rem; }
+.footer-logo { height: 52px; width: auto; filter: brightness(0) invert(1); margin-bottom: 1rem; }
 .footer-brand p { font-size: .9rem; line-height: 1.7; }
 .footer-links, .footer-contact { display: flex; flex-direction: column; gap: .8rem; }
 .footer-links a, .footer-contact a, .footer-contact p { font-size: .85rem; transition: color .25s; }
