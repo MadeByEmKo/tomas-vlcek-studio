@@ -8,7 +8,7 @@
 const TRANSLATIONS = {
   cs: {
     'nav.about':'O mně','nav.services':'Služby','nav.projects':'Ukázky prací',
-    'nav.articles':'Zajímavosti','nav.inspiration':'Inspirace','nav.reviews':'Recenze','nav.contact':'Kontakt','nav.cta':'Kontaktujte mě',
+    'nav.inspiration':'Inspirace','nav.reviews':'Recenze','nav.contact':'Kontakt','nav.cta':'Kontaktujte mě',
     'hero.eyebrow':'Od roku 1998','hero.w1':'Navrhuji','hero.w2':'a realizuji','hero.w3':'interiéry',
     'hero.sub':'Pro zlepšení vašeho životního komfortu s dodržením vašeho životního stylu.',
     'hero.cta1':'Ukázky prací','hero.cta2':'Chci 3D návrh',
@@ -33,7 +33,7 @@ const TRANSLATIONS = {
     'srv.p8':'Realizace — montáž interiérů','srv.p9':'Předávka — ukončení',
     'proj.eyebrow':'Realizace','proj.h':'Ukázky <em>prací</em>',
     'proj.back':'Zpět na ukázky','proj.all':'Vše','proj.res':'Rezidenční','proj.com':'Komerční',
-    'art.eyebrow':'Zajímavosti','art.h':'Ze světa <em>interiérového</em> designu',
+    
     'rev.eyebrow':'Reference','rev.h':'Co říkají <em>klienti</em>',
     'con.eyebrow':'Kontakt','con.h':'Pojďme <em>spolupracovat</em>',
     'con.sub':'Rád si s vámi promluvím o vašem projektu. Neváhejte mě kontaktovat.',
@@ -70,7 +70,7 @@ const TRANSLATIONS = {
     'srv.p8':'Realization — interior assembly','srv.p9':'Handover — completion',
     'proj.eyebrow':'Portfolio','proj.h':'Our <em>work</em>',
     'proj.back':'Back to projects','proj.all':'All','proj.res':'Residential','proj.com':'Commercial',
-    'art.eyebrow':'Insights','art.h':'From the world of <em>interior</em> design',
+    
     'rev.eyebrow':'Testimonials','rev.h':'What our <em>clients</em> say',
     'con.eyebrow':'Contact','con.h':'Let\'s <em>collaborate</em>',
     'con.sub':'I\'d love to discuss your project. Don\'t hesitate to reach out.',

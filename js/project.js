@@ -10,12 +10,12 @@ function getProjectIdFromUrl() {
 }
 
 function buildPreviewGroups(project) {
-  const lower = filename => filename.toLowerCase();
+  const getName = f => (typeof f === 'string' ? f : (f && f.file ? f.file : '')).toLowerCase();
   const beforeWords = ['před', 'pred', 'puvod', 'původ', 'stare', 'stará', 'old', 'before', 'orig', 'původní'];
   const renderWords = ['3d', 'render', 'viz', 'vizualiz', 'vizualizace', 'model', 'rendering', 'rend'];
 
-  const beforePhotos = project.photos.filter(f => beforeWords.some(w => lower(f).includes(w)));
-  const renderPhotos = project.photos.filter(f => renderWords.some(w => lower(f).includes(w)));
+  const beforePhotos = project.photos.filter(f => beforeWords.some(w => getName(f).includes(w)));
+  const renderPhotos = project.photos.filter(f => renderWords.some(w => getName(f).includes(w)));
   const realizationPhotos = project.photos.filter(f => !beforePhotos.includes(f) && !renderPhotos.includes(f));
 
   return [
@@ -63,8 +63,9 @@ function updateProjectPreview(project, groups, key, selectedIndex = 0) {
     return;
   }
 
-  const thumbHtml = photos.map((filename, idx) => {
-    const src = photoPath(project, filename);
+  const thumbHtml = photos.map((photoObj, idx) => {
+    const thumbName = (typeof photoObj === 'string') ? photoObj : (photoObj.thumb || photoObj.file);
+    const src = photoPath(project, thumbName);
     return `
       <button type="button" class="project-thumb${idx === selectedIndex ? ' active' : ''}" data-idx="${idx}">
         <img src="${src}" alt="${name} ${idx + 1}" loading="lazy">

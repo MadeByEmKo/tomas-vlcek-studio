@@ -76,17 +76,13 @@ async function loadAssetManifest() {
   return window.assetManifestPromise;
 }
 
-// ── Static article fallback ──────────────────────────────────
-const STATIC_ARTICLES = [
-  { id:1, nadpis:'Nápady pro dětský svět', nadpis_en:"Ideas for Children's Spaces", perex:'Jak navrhnout dětský pokoj, který poroste s vaším dítětem a zůstane funkční i hravý.', perex_en:"How to design a children's room that grows with your child.", foto:'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80', stitek:'Design', stitek_en:'Design', obsah:'Dětský pokoj je jedním z nejdůležitějších prostorů v domě. Měl by být bezpečný, stimulující a zároveň schopný adaptace s rostoucími potřebami dítěte. Klíčem je flexibilní nábytek a neutrální barevná paleta doplněná hravými akcenty.', obsah_en:'A children\'s room is one of the most important spaces in the home. It should be safe, stimulating and adaptable to a child\'s growing needs. The key is flexible furniture and a neutral colour palette with playful accents.' },
-  { id:2, nadpis:'Mini Caffè Concept', nadpis_en:'Mini Caffè Concept', perex:'Inspirace pro tvorbu útulné kavárny s velkým designovým nápadem.', perex_en:'Inspiration for creating a cosy café with bold design ideas.', foto:'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80', stitek:'Komerční', stitek_en:'Commercial', obsah:'Malé kavárny a bistro koncepty zažívají velký boom. Úspěchem je dokonalé využití každého centimetru prostoru, konzistentní vizuální identita a materiály, které mluví samy za sebe.', obsah_en:'Small cafés and bistro concepts are booming. Success lies in the perfect use of every centimetre of space and materials that speak for themselves.' },
-  { id:3, nadpis:'Barvy v interiéru a exteriéru', nadpis_en:'Colours in Interior & Exterior', perex:'Jak správně kombinovat barvy interiéru s exteriérem stavby a okolní krajinou.', perex_en:'How to harmoniously combine interior colours with the building exterior.', foto:'https://images.unsplash.com/photo-1560185127-6a6ed65f59f5?w=800&q=80', stitek:'Inspirace', stitek_en:'Inspiration', obsah:'Barevné schéma bytu nebo domu by mělo vycházet z přirozeného světla v prostoru a harmonovat s exteriérem. Neutrální základna dává svobodu ve výběru doplňků a nábytku.', obsah_en:'The colour scheme should stem from the natural light in the space and harmonise with the exterior. A neutral base gives freedom in choosing accessories and furniture.' },
-  { id:4, nadpis:'Dekton — materiál budoucnosti', nadpis_en:'Dekton — Material of the Future', perex:'Inovativní povrchový materiál Dekton a jeho využití v moderním designu.', perex_en:'The innovative Dekton surface material and its applications in modern design.', foto:'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80', stitek:'Materiály', stitek_en:'Materials', obsah:'Deskovina Dekton je nový inovativní materiál na bázi přírodního skla, keramiky a křemene. Je extrémně pevný, odolný proti poškrábání, tepelně odolný a neuvěřitelně nízkoúdržbový.', obsah_en:'Dekton is based on natural glass, ceramics and quartz. It is extremely strong, scratch-resistant, heat-resistant and incredibly low-maintenance.' },
-];
+// Articles removed — no static fallback
 
 // ── Helper: get photo path ───────────────────────────────────
-function photoPath(p, filename) {
+function photoPath(p, photo) {
+  // photo can be a string filename or an object {file, thumb}
   const sub = p.subfolder ? `/${p.subfolder}` : '';
+  const filename = (typeof photo === 'string') ? photo : (photo && photo.file ? photo.file : '');
   return encodeURI(`assets/${p.folder}${sub}/${filename}`);
 }
 
@@ -240,47 +236,7 @@ document.addEventListener('keydown', e => {
 });
 
 // ── Render: Articles ─────────────────────────────────────────
-function renderArticles(data, lang) {
-  const grid = document.getElementById('articlesGrid');
-  if (!grid) return;
-  grid.innerHTML = data.map(a => {
-    const title   = lang === 'en' && a.nadpis_en ? a.nadpis_en : a.nadpis;
-    const excerpt = lang === 'en' && a.perex_en  ? a.perex_en  : a.perex;
-    const tag     = lang === 'en' && a.stitek_en ? a.stitek_en : a.stitek;
-    const more    = lang === 'en' ? 'Read more' : 'Číst více';
-    return `
-    <div class="art-card reveal" onclick="openArticleModal(${a.id})">
-      <div class="art-thumb"><img src="${a.foto || a.foto_url || ''}" alt="${title}" loading="lazy"></div>
-      <div class="art-body">
-        <p class="art-tag">${tag || ''}</p>
-        <h3 class="art-title">${title}</h3>
-        <p class="art-excerpt">${excerpt}</p>
-        <span class="art-more">${more} →</span>
-      </div>
-    </div>`;
-  }).join('');
-  window._articleData = data;
-}
-
-window.openArticleModal = function(id) {
-  const lang = window._currentLang || 'cs';
-  const a = (window._articleData || STATIC_ARTICLES).find(x => x.id === id);
-  if (!a) return;
-  const title   = lang === 'en' && a.nadpis_en ? a.nadpis_en : a.nadpis;
-  const content = lang === 'en' && a.obsah_en  ? a.obsah_en  : a.obsah;
-  const tag     = lang === 'en' && a.stitek_en ? a.stitek_en : a.stitek;
-  document.getElementById('modalInner').innerHTML = `
-    <div style="grid-column:1/-1">
-      ${a.foto ? `<img src="${a.foto || a.foto_url}" alt="${title}" style="width:100%;max-height:340px;object-fit:cover;">` : ''}
-      <div style="padding:2.5rem">
-        <p class="modal-num">${tag || ''}</p>
-        <h2 class="modal-title">${title}</h2>
-        <p class="modal-desc">${content || ''}</p>
-      </div>
-    </div>`;
-  document.getElementById('projectModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-};
+// Articles removed — functions no longer needed
 
 // ── Main render ──────────────────────────────────────────────
 window.renderCMS = async function(lang) {
@@ -295,18 +251,7 @@ window.renderCMS = async function(lang) {
   // Inspiration
   renderInspiration(lang);
 
-  // Articles: try API first, fallback to static
-  if (CMS_API_URL && CMS_API_URL !== 'YOUR_APPS_SCRIPT_URL_HERE') {
-    fetch(`${CMS_API_URL}?action=articles`)
-      .then(r => r.json())
-      .then(data => {
-        const arts = (data.articles || []).map(o => ({ ...o, foto: o.foto || o.foto_url || '' }));
-        renderArticles(arts.length ? arts : STATIC_ARTICLES, lang);
-      })
-      .catch(() => renderArticles(STATIC_ARTICLES, lang));
-  } else {
-    renderArticles(STATIC_ARTICLES, lang);
-  }
+  // Articles removed — no remote fetch or rendering
 };
 
 window.renderCMS(localStorage.getItem('tv_lang') || 'cs');

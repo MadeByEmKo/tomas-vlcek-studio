@@ -106,6 +106,25 @@ def build_album(folder: Path):
     meta = parse_text_file(text_file) if text_file else {}
     title = meta.get('title') or folder.name
     category = meta.get('kategorie') or ''
+    # build photo objects with optional thumb candidate
+    photo_objs = []
+    for name in photos:
+        base, ext = os.path.splitext(name)
+        thumb_candidates = [
+            f"{base}-scaled{ext}",
+            f"{base}-small{ext}",
+            f"{base}_small{ext}",
+            f"{base}-thumb{ext}",
+            f"{base}_thumb{ext}",
+            f"{base} 2{ext}",
+        ]
+        thumb = None
+        for t in thumb_candidates:
+            if (folder / t).exists():
+                thumb = t
+                break
+        photo_objs.append({'file': name, 'thumb': thumb})
+
     return {
         'folder': folder.name,
         'title': title,
@@ -115,7 +134,7 @@ def build_album(folder: Path):
         'stavebniPriprava': meta.get('stavebniPriprava', ''),
         'vyroba': meta.get('vyroba', ''),
         'description': meta.get('description', ''),
-        'photos': photos,
+        'photos': photo_objs,
         'textFile': text_file.name if text_file else None,
     }
 
