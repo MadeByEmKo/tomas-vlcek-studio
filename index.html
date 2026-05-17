@@ -4,314 +4,301 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tomáš Vlček — home Interiors & Design</title>
-  <meta name="description" content="Navrhuji a realizuji rezidenční a komerční interiéry od roku 1998. Design, kvalita, detail — Tomáš Vlček, Pyšely.">
-  <meta name="keywords" content="interiérový design, návrh interiéru, realizace interiéru, Tomáš Vlček, Praha, Pyšely">
+  <meta name="description" content="Navrhuji a realizuji rezidenční a komerční interiéry od roku 1998. Design, kvalita, detail. Tomáš Vlček, Pyšely.">
   <meta property="og:title" content="Tomáš Vlček — home Interiors & Design">
-  <meta property="og:description" content="Navrhuji a realizuji interiéry od roku 1998.">
+  <meta property="og:description" content="Interiérový design od roku 1998. Navrhuji interiéry, které odrážejí váš životní styl.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://tomas-vlcek.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <div class="cursor-dot" id="cursorDot"></div>
+  <!-- ── Cursor dot (desktop only) ── -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
 
-  <!-- ======== NAVIGATION ======== -->
-  <nav id="navbar" class="navbar">
+  <!-- ══════════════ NAVBAR ══════════════ -->
+  <header id="navbar" class="navbar">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo" id="navLogoLink">
-        <div class="logo-wrap">
-          <img src="assets/logo_dark.jpg" alt="Tomáš Vlček — home Interiors & Design" class="logo-img logo-dark" id="logoDark">
-          <img src="assets/logo_white.jpg" alt="Tomáš Vlček — home Interiors & Design" class="logo-img logo-light" id="logoLight">
-          <span class="logo-text-fallback" id="logoFallback">TV <span>home Interiors & Design</span></span>
-        </div>
+
+      <a href="#hero" class="nav-logo" aria-label="Domů">
+        <img src="assets/logo.png" alt="Tomáš Vlček" class="logo-img" id="logoImg">
       </a>
-      <div class="nav-links" id="navLinks">
+
+      <nav class="nav-links" aria-label="Hlavní navigace">
         <a href="#o-mne"    class="nav-link" data-i18n="nav.about">O mně</a>
         <a href="#sluzby"   class="nav-link" data-i18n="nav.services">Služby</a>
         <a href="#projekty" class="nav-link" data-i18n="nav.projects">Ukázky prací</a>
+        <a href="#clanky"   class="nav-link" data-i18n="nav.articles">Zajímavosti</a>
         <a href="#inspirace" class="nav-link" data-i18n="nav.inspiration">Inspirace</a>
         <a href="#kontakt"  class="nav-link" data-i18n="nav.contact">Kontakt</a>
-      </div>
-      <div class="nav-actions">
-        <button id="langToggle" class="lang-toggle" aria-label="Přepnout jazyk">
-          <span data-lang-label>EN</span>
-        </button>
-        <a href="#kontakt" class="btn-nav" data-i18n="nav.cta">Kontaktujte mě</a>
-        <button class="hamburger" id="hamburger" aria-label="Otevřít menu">
+      </nav>
+
+      <div class="nav-right">
+        <button id="langBtn" class="lang-btn" aria-label="Toggle language">EN</button>
+        <a href="#kontakt" class="btn-outline nav-cta" data-i18n="nav.cta">Kontaktujte mě</a>
+        <button class="hamburger" id="hamburger" aria-label="Otevřít menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
-    </div>
-  </nav>
 
-  <!-- Mobile menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-close" id="mobileClose">✕</button>
-    <nav class="mobile-nav">
+    </div>
+  </header>
+
+  <!-- ── Mobile menu overlay ── -->
+  <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true">
+    <button class="mobile-close" id="mobileClose" aria-label="Zavřít menu">✕</button>
+    <nav aria-label="Mobilní navigace">
       <a href="#o-mne"     class="mobile-link" data-i18n="nav.about">O mně</a>
       <a href="#sluzby"    class="mobile-link" data-i18n="nav.services">Služby</a>
       <a href="#projekty"  class="mobile-link" data-i18n="nav.projects">Ukázky prací</a>
+      <a href="#clanky"    class="mobile-link" data-i18n="nav.articles">Zajímavosti</a>
       <a href="#inspirace" class="mobile-link" data-i18n="nav.inspiration">Inspirace</a>
       <a href="#kontakt"   class="mobile-link" data-i18n="nav.contact">Kontakt</a>
-      <button class="lang-toggle lang-toggle-mobile" id="langToggleMobile"><span data-lang-label-mobile>EN</span></button>
+      <button class="lang-btn lang-btn-mobile" id="langBtnMobile" aria-label="Toggle language">EN</button>
     </nav>
   </div>
 
-  <!-- ======== HERO ======== -->
+  <!-- ══════════════ HERO ══════════════ -->
   <section id="hero" class="hero">
-    <div class="hero-bg" id="heroBg">
-      <img src="assets/hero.jpg" alt="Luxusní interiér" class="hero-img">
+    <div class="hero-bg">
+      <img src="assets/hero.jpg" alt="Luxusní interiér" loading="eager" fetchpriority="high">
       <div class="hero-overlay"></div>
     </div>
-    <div class="hero-content">
-      <p class="hero-eyebrow reveal-hero" data-i18n="hero.eyebrow">Od roku 1998</p>
+    <div class="container hero-content">
+      <p class="eyebrow hero-anim" data-i18n="hero.eyebrow">Od roku 1998</p>
       <h1 class="hero-title">
-        <span class="hero-word reveal-hero" data-i18n="hero.w1">Navrhuji</span>
-        <span class="hero-word hero-italic reveal-hero" data-i18n="hero.w2">a realizuji</span>
-        <span class="hero-word reveal-hero" data-i18n="hero.w3">interiéry</span>
+        <span class="hero-anim" data-i18n="hero.w1">Navrhuji</span>
+        <em class="hero-anim" data-i18n="hero.w2">a realizuji</em>
+        <span class="hero-anim" data-i18n="hero.w3">interiéry</span>
       </h1>
-      <p class="hero-sub reveal-hero" data-i18n="hero.sub">Pro zlepšení vašeho životního komfortu s dodržením vašeho životního stylu.</p>
-      <div class="hero-ctas reveal-hero">
+      <p class="hero-sub hero-anim" data-i18n="hero.sub">Pro zlepšení vašeho životního komfortu s dodržením vašeho životního stylu.</p>
+      <div class="hero-ctas hero-anim">
         <a href="#projekty" class="btn-primary" data-i18n="hero.cta1">Ukázky prací</a>
         <a href="#kontakt"  class="btn-ghost"   data-i18n="hero.cta2">Chci 3D návrh</a>
       </div>
     </div>
-    <div class="hero-stats reveal-hero">
-      <div class="stat-item">
-        <span class="stat-num" data-target="25">0</span><span class="stat-sfx">+</span>
-        <span class="stat-lbl" data-i18n="hero.s1">let praxe</span>
-      </div>
+    <div class="hero-stats hero-anim">
+      <div class="stat"><span class="stat-n" data-target="25">0</span><sup>+</sup><span class="stat-l" data-i18n="hero.s1">let praxe</span></div>
       <div class="stat-sep"></div>
-      <div class="stat-item">
-        <span class="stat-num" data-target="200">0</span><span class="stat-sfx">+</span>
-        <span class="stat-lbl" data-i18n="hero.s2">realizací</span>
-      </div>
+      <div class="stat"><span class="stat-n" data-target="200">0</span><sup>+</sup><span class="stat-l" data-i18n="hero.s2">realizací</span></div>
       <div class="stat-sep"></div>
-      <div class="stat-item">
-        <span class="stat-num" data-target="100">0</span><span class="stat-sfx">%</span>
-        <span class="stat-lbl" data-i18n="hero.s3">spokojených klientů</span>
-      </div>
+      <div class="stat"><span class="stat-n" data-target="100">0</span><sup>%</sup><span class="stat-l" data-i18n="hero.s3">spokojených klientů</span></div>
     </div>
-    <a href="#o-mne" class="scroll-hint">
+    <a href="#o-mne" class="scroll-cue" aria-label="Scroll dolů">
       <span class="scroll-line"></span>
-      <span data-i18n="hero.scroll">Scroll</span>
     </a>
   </section>
 
-  <!-- ======== O MNĚ ======== -->
+  <!-- ══════════════ O MNĚ ══════════════ -->
   <section id="o-mne" class="section about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-visual reveal">
-          <div class="about-img-wrap">
-            <img src="assets/about.jpg" alt="Tomáš Vlček — interiérový designér" class="about-img">
-            <div class="about-accent"></div>
-          </div>
-          <div class="about-badge">
-            <p class="badge-num">25+</p>
-            <p class="badge-txt" data-i18n="about.badge">let zkušeností</p>
-          </div>
+    <div class="container about-grid">
+
+      <div class="about-visual reveal">
+        <div class="about-frame">
+          <img src="assets/about.jpg" alt="Tomáš Vlček — interiérový designér" loading="lazy">
         </div>
-        <div class="about-body reveal reveal-right">
-          <p class="eyebrow" data-i18n="about.eyebrow">O mně</p>
-          <h2 class="section-h" data-i18n="about.h">Práce s interiérovým designem je pro mě prací <em>i koníčkem</em></h2>
-          <p class="body-text" data-i18n="about.p1">Vystudoval jsem obor technologie, konstrukce a design nábytku, což mi poskytlo pevný základ pro mou kariéru. Dlouholetá praxe nejen v oblasti interiérové tvorby, ale také na vedoucích obchodních pozicích při řízení týmů architektů, mě opravňuje k tomu, abych vám pomohl realizovat nové podoby vašich domovů.</p>
-          <p class="body-text" data-i18n="about.p2">Každý projekt je pro mě výzvou, zejména ve snaze sladit mé nápady s potřebami a přáními klienta. Při tvorbě interiérů kladu důraz na detail a kvalitu použitých materiálů.</p>
-          <div class="values-row">
-            <div class="value-card">
-              <span class="value-letter">D</span>
-              <strong data-i18n="about.v1h">Design</strong>
-              <p data-i18n="about.v1p">Podoba odpovídající potřebám klienta</p>
-            </div>
-            <div class="value-card">
-              <span class="value-letter">V</span>
-              <strong data-i18n="about.v2h">Výkon</strong>
-              <p data-i18n="about.v2p">Kvalita materiálů a provedení</p>
-            </div>
-            <div class="value-card">
-              <span class="value-letter">C</span>
-              <strong data-i18n="about.v3h">Cena</strong>
-              <p data-i18n="about.v3p">Investice odpovídající představě</p>
-            </div>
-          </div>
-          <a href="#kontakt" class="btn-primary" data-i18n="about.cta">Začněme spolupracovat</a>
+        <div class="about-badge">
+          <strong>25+</strong>
+          <span data-i18n="about.badge">let zkušeností</span>
         </div>
       </div>
+
+      <div class="about-text reveal-r">
+        <p class="eyebrow" data-i18n="about.eyebrow">O mně</p>
+        <h2 class="section-h" data-i18n="about.h">Práce s interiérovým designem je pro mě prací <em>i koníčkem</em></h2>
+        <p data-i18n="about.p1">Vystudoval jsem obor technologie, konstrukce a design nábytku, což mi poskytlo pevný základ pro mou kariéru. Dlouholetá praxe nejen v oblasti interiérové tvorby, ale také na vedoucích obchodních pozicích při řízení týmů architektů, mě opravňuje k tomu, abych vám pomohl realizovat nové podoby vašich domovů.</p>
+        <p data-i18n="about.p2">Každý projekt je pro mě výzvou, zejména ve snaze sladit mé nápady s potřebami a přáními klienta. Při tvorbě interiérů kladu důraz na detail a kvalitu použitých materiálů.</p>
+        <div class="values">
+          <div class="value"><strong data-i18n="about.v1h">Design</strong><p data-i18n="about.v1p">Podoba odpovídající potřebám klienta</p></div>
+          <div class="value"><strong data-i18n="about.v2h">Výkon</strong><p data-i18n="about.v2p">Kvalita materiálů a provedení</p></div>
+          <div class="value"><strong data-i18n="about.v3h">Cena</strong><p data-i18n="about.v3p">Investice odpovídající představě</p></div>
+        </div>
+        <a href="#kontakt" class="btn-primary" data-i18n="about.cta">Začněme spolupracovat</a>
+      </div>
+
     </div>
   </section>
 
-  <!-- ======== SLUŽBY ======== -->
-  <section id="sluzby" class="section services">
+  <!-- ══════════════ SLUŽBY ══════════════ -->
+  <section id="sluzby" class="section services bg-soft">
     <div class="container">
       <div class="section-head reveal">
         <p class="eyebrow" data-i18n="srv.eyebrow">Co nabízím</p>
         <h2 class="section-h" data-i18n="srv.h">Komplexní <em>návrhářská</em> činnost</h2>
         <p class="section-sub" data-i18n="srv.sub">Vyberte si pouze potřebné fáze nebo komplexní realizaci od konzultace po finální předání.</p>
       </div>
-      <div class="services-grid">
-        <div class="srv-list reveal">
-          <div class="srv-item"><span class="srv-diamond"></span><span data-i18n="srv.s1">Konzultace</span></div>
-          <div class="srv-item"><span class="srv-diamond"></span><span data-i18n="srv.s2">Návrhářská činnost</span></div>
-          <div class="srv-item"><span class="srv-diamond"></span><span data-i18n="srv.s3">Vytvoření materiálové skladby</span></div>
-          <div class="srv-item"><span class="srv-diamond"></span><span data-i18n="srv.s4">Výkresová dokumentace</span></div>
-          <div class="srv-item"><span class="srv-diamond"></span><span data-i18n="srv.s5">Zadání objednávek dodavatelům</span></div>
-          <div class="srv-item"><span class="srv-diamond"></span><span data-i18n="srv.s6">Logistické plánování realizace</span></div>
-          <div class="srv-item"><span class="srv-diamond"></span><span data-i18n="srv.s7">Kontrolní činnost procesu</span></div>
-          <div class="srv-item"><span class="srv-diamond"></span><span data-i18n="srv.s8">Finalizace a přebírka</span></div>
-          <a href="#kontakt" class="btn-primary mt-lg" data-i18n="srv.cta">Poslat poptávku</a>
-        </div>
-        <div class="process-steps reveal reveal-right">
-          <div class="step"><span class="step-num">01</span><span class="step-txt" data-i18n="srv.p1">Analýza potřeb</span></div>
-          <div class="step"><span class="step-num">02</span><span class="step-txt" data-i18n="srv.p2">Návrh koncepce</span></div>
-          <div class="step"><span class="step-num">03</span><span class="step-txt" data-i18n="srv.p3">Prezentace</span></div>
-          <div class="step"><span class="step-num">04</span><span class="step-txt" data-i18n="srv.p4">Konzultace detailů & nacenění</span></div>
-          <div class="step"><span class="step-num">05</span><span class="step-txt" data-i18n="srv.p5">Příprava profesních podkladů</span></div>
-          <div class="step"><span class="step-num">06</span><span class="step-txt" data-i18n="srv.p6">Objednání všech profesí</span></div>
-          <div class="step"><span class="step-num">07</span><span class="step-txt" data-i18n="srv.p7">Stavební příprava</span></div>
-          <div class="step"><span class="step-num">08</span><span class="step-txt" data-i18n="srv.p8">Realizace — montáž interiérů</span></div>
-          <div class="step"><span class="step-num">09</span><span class="step-txt" data-i18n="srv.p9">Předávka — ukončení</span></div>
-        </div>
+      <div class="srv-grid">
+        <ul class="srv-list reveal">
+          <li data-i18n="srv.s1">Konzultace</li>
+          <li data-i18n="srv.s2">Návrhářská činnost</li>
+          <li data-i18n="srv.s3">Vytvoření materiálové skladby</li>
+          <li data-i18n="srv.s4">Výkresová dokumentace</li>
+          <li data-i18n="srv.s5">Zadání objednávek dodavatelům</li>
+          <li data-i18n="srv.s6">Logistické plánování realizace</li>
+          <li data-i18n="srv.s7">Kontrolní činnost procesu</li>
+          <li data-i18n="srv.s8">Finalizace a přebírka</li>
+        </ul>
+        <ol class="srv-steps reveal-r">
+          <li data-i18n="srv.p1">Analýza potřeb</li>
+          <li data-i18n="srv.p2">Návrh koncepce</li>
+          <li data-i18n="srv.p3">Prezentace</li>
+          <li data-i18n="srv.p4">Konzultace detailů & nacenění</li>
+          <li data-i18n="srv.p5">Příprava profesních podkladů</li>
+          <li data-i18n="srv.p6">Objednání všech profesí</li>
+          <li data-i18n="srv.p7">Stavební příprava</li>
+          <li data-i18n="srv.p8">Realizace — montáž interiérů</li>
+          <li data-i18n="srv.p9">Předávka — ukončení</li>
+        </ol>
+      </div>
+      <div class="srv-cta reveal">
+        <a href="#kontakt" class="btn-primary" data-i18n="srv.cta">Poslat poptávku</a>
       </div>
     </div>
   </section>
 
-  <!-- ======== UKÁZKY PRACÍ ======== -->
+  <!-- ══════════════ UKÁZKY PRACÍ ══════════════ -->
   <section id="projekty" class="section projects">
     <div class="container">
       <div class="section-head reveal">
         <p class="eyebrow" data-i18n="proj.eyebrow">Realizace</p>
         <h2 class="section-h" data-i18n="proj.h">Ukázky <em>prací</em></h2>
-        <p class="section-sub" data-i18n="proj.sub">Každý projekt je jedinečný příběh — od první konzultace po finální předání.</p>
       </div>
-      <div class="proj-grid" id="projectGrid">
-        <!-- Rendered by cms.js -->
+      <div class="proj-grid" id="projectGrid" role="list">
+        <div class="proj-skeleton"></div>
+        <div class="proj-skeleton"></div>
+        <div class="proj-skeleton"></div>
       </div>
     </div>
   </section>
 
-  <!-- Articles section removed -->
+  <!-- ══════════════ ZAJÍMAVOSTI ══════════════ -->
+  <section id="clanky" class="section articles bg-soft">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="art.eyebrow">Zajímavosti</p>
+        <h2 class="section-h" data-i18n="art.h">Ze světa <em>interiérového</em> designu</h2>
+      </div>
+      <div class="art-grid" id="articlesGrid"></div>
+    </div>
+  </section>
 
-  <!-- ======== INSPIRACE ======== -->
+  <!-- ══════════════ INSPIRACE ══════════════ -->
   <section id="inspirace" class="section inspiration">
     <div class="container">
       <div class="section-head reveal">
         <p class="eyebrow" data-i18n="ins.eyebrow">Inspirace</p>
         <h2 class="section-h" data-i18n="ins.h">Inspirace pro váš <em>domov</em></h2>
-        <p class="section-sub" data-i18n="ins.sub">Výběr vizualizací a realizací, které mohou sloužit jako inspirace pro váš projekt.</p>
       </div>
-      <div class="inspiration-grid" id="inspirationGrid">
-        <!-- Rendered by cms.js -->
-      </div>
+      <div class="ins-grid" id="inspirationGrid"></div>
     </div>
   </section>
 
-  <!-- ======== KONTAKT ======== -->
-  <section id="kontakt" class="section contact">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info reveal">
-          <p class="eyebrow" data-i18n="con.eyebrow">Kontakt</p>
-          <h2 class="section-h" data-i18n="con.h">Pojďme <em>spolupracovat</em></h2>
-          <p class="body-text" data-i18n="con.sub">Rád si s vámi promluvím o vašem projektu. Neváhejte mě kontaktovat.</p>
-          <div class="contact-details">
-            <div class="contact-row">
-              <span class="contact-icon">✉</span>
-              <div><p class="contact-label" data-i18n="con.email">E-mail</p><a href="mailto:email@tomas-vlcek.com" class="contact-val">email@tomas-vlcek.com</a></div>
+  <!-- ══════════════ KONTAKT ══════════════ -->
+  <section id="kontakt" class="section contact bg-soft">
+    <div class="container contact-grid">
+
+      <div class="contact-info reveal">
+        <p class="eyebrow" data-i18n="con.eyebrow">Kontakt</p>
+        <h2 class="section-h" data-i18n="con.h">Pojďme <em>spolupracovat</em></h2>
+        <p data-i18n="con.sub">Rád si s vámi promluvím o vašem projektu. Neváhejte mě kontaktovat.</p>
+        <address>
+          <a href="mailto:email@tomas-vlcek.com" class="contact-row">
+            <span class="contact-ic" aria-hidden="true">✉</span>
+            <span><small data-i18n="con.email">E-mail</small>email@tomas-vlcek.com</span>
+          </a>
+          <a href="tel:+420607547179" class="contact-row">
+            <span class="contact-ic" aria-hidden="true">✆</span>
+            <span><small data-i18n="con.phone">Telefon</small>+420 607 547 179</span>
+          </a>
+          <div class="contact-row">
+            <span class="contact-ic" aria-hidden="true">◎</span>
+            <span><small data-i18n="con.addr">Adresa</small>251 67 Pyšely</span>
+          </div>
+        </address>
+      </div>
+
+      <div class="contact-form-wrap reveal-r">
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="f-name" data-i18n="con.name">Jméno</label>
+              <input type="text" id="f-name" name="name" required autocomplete="name">
             </div>
-            <div class="contact-row">
-              <span class="contact-icon">✆</span>
-              <div><p class="contact-label" data-i18n="con.phone">Telefon</p><a href="tel:+420607547179" class="contact-val">+420 607 547 179</a></div>
-            </div>
-            <div class="contact-row">
-              <span class="contact-icon">◎</span>
-              <div><p class="contact-label" data-i18n="con.addr">Adresa</p><p class="contact-val">251 67 Pyšely</p></div>
+            <div class="form-field">
+              <label for="f-email" data-i18n="con.emailF">E-mail</label>
+              <input type="email" id="f-email" name="email" required autocomplete="email">
             </div>
           </div>
-        </div>
-        <div class="contact-form-wrap reveal reveal-right">
-          <form id="contactForm" class="contact-form" novalidate>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="f-name" data-i18n="con.name">Jméno</label>
-                <input type="text" id="f-name" name="name" required autocomplete="name">
-              </div>
-              <div class="form-group">
-                <label for="f-email" data-i18n="con.emailF">E-mail</label>
-                <input type="email" id="f-email" name="email" required autocomplete="email">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="f-phone" data-i18n="con.phoneF">Telefon (nepovinné)</label>
-              <input type="tel" id="f-phone" name="phone" autocomplete="tel">
-            </div>
-            <div class="form-group">
-              <label for="f-msg" data-i18n="con.msg">Váš dotaz nebo požadavek</label>
-              <textarea id="f-msg" name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="btn-primary btn-full" id="formSubmit">
-              <span data-i18n="con.send">Odeslat zprávu</span>
-            </button>
-            <div id="formMsg" class="form-status" style="display:none"></div>
-          </form>
-        </div>
+          <div class="form-field">
+            <label for="f-phone" data-i18n="con.phoneF">Telefon (nepovinné)</label>
+            <input type="tel" id="f-phone" name="phone" autocomplete="tel">
+          </div>
+          <div class="form-field">
+            <label for="f-msg" data-i18n="con.msg">Váš dotaz nebo požadavek</label>
+            <textarea id="f-msg" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" id="formSubmit" class="btn-primary btn-wide">
+            <span data-i18n="con.send">Odeslat zprávu</span>
+          </button>
+          <div id="formMsg" class="form-status" role="status" aria-live="polite" hidden></div>
+        </form>
       </div>
+
     </div>
   </section>
 
-  <!-- ======== FOOTER ======== -->
+  <!-- ══════════════ FOOTER ══════════════ -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <img src="assets/logo_white.jpg" alt="Tomáš Vlček" class="footer-logo">
-          <p data-i18n="footer.tagline">Navrhuji interiéry, které odrážejí váš životní styl.</p>
-        </div>
-        <div class="footer-links">
-          <a href="#o-mne"     data-i18n="nav.about">O mně</a>
-          <a href="#sluzby"    data-i18n="nav.services">Služby</a>
-          <a href="#projekty"  data-i18n="nav.projects">Ukázky prací</a>
-          <a href="#inspirace" data-i18n="nav.inspiration">Inspirace</a>
-          <a href="#kontakt"   data-i18n="nav.contact">Kontakt</a>
-        </div>
-        <div class="footer-contact">
-          <a href="mailto:email@tomas-vlcek.com">email@tomas-vlcek.com</a>
-          <a href="tel:+420607547179">+420 607 547 179</a>
-          <p>251 67 Pyšely</p>
-        </div>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Tomáš Vlček" class="footer-logo">
+        <p data-i18n="footer.tagline">Navrhuji interiéry, které odrážejí váš životní styl.</p>
       </div>
-      <div class="footer-bottom">
-        <p>© <span id="year"></span> Tomáš Vlček — home Interiors & Design</p>
-        <div class="footer-legal">
-          <a href="#" data-i18n="footer.cookies">Cookies</a>
-          <a href="#" data-i18n="footer.privacy">Ochrana osobních údajů</a>
-        </div>
+      <nav class="footer-nav" aria-label="Footer navigace">
+        <a href="#o-mne"     data-i18n="nav.about">O mně</a>
+        <a href="#sluzby"    data-i18n="nav.services">Služby</a>
+        <a href="#projekty"  data-i18n="nav.projects">Ukázky prací</a>
+        <a href="#clanky"    data-i18n="nav.articles">Zajímavosti</a>
+        <a href="#inspirace" data-i18n="nav.inspiration">Inspirace</a>
+        <a href="#kontakt"   data-i18n="nav.contact">Kontakt</a>
+      </nav>
+      <div class="footer-contact">
+        <a href="mailto:email@tomas-vlcek.com">email@tomas-vlcek.com</a>
+        <a href="tel:+420607547179">+420 607 547 179</a>
+        <span>251 67 Pyšely</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Tomáš Vlček — home Interiors & Design</p>
+      <div class="footer-legal">
+        <a href="#" data-i18n="footer.cookies">Cookies</a>
+        <a href="#" data-i18n="footer.privacy">Ochrana osobních údajů</a>
       </div>
     </div>
   </footer>
 
-  <!-- ======== PROJECT MODAL (lightbox galerie) ======== -->
-  <div id="projectModal" class="modal" role="dialog" aria-modal="true">
-    <div class="modal-overlay" id="modalOverlay"></div>
-    <div class="modal-box modal-box-wide">
-      <button class="modal-close" id="modalClose">✕</button>
-      <div class="modal-inner" id="modalInner">
-        <!-- Project detail rendered here -->
-      </div>
+  <!-- ══════════════ PROJECT MODAL ══════════════ -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Detail projektu" hidden>
+    <div class="modal-bg" id="modalBg"></div>
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="Zavřít">✕</button>
+      <div id="modalBody" class="modal-body"></div>
     </div>
   </div>
 
-  <!-- ======== LIGHTBOX ======== -->
-  <div id="lightbox" class="lightbox" role="dialog">
-    <div class="lb-overlay" id="lbOverlay"></div>
-    <button class="lb-close" id="lbClose">✕</button>
-    <button class="lb-prev" id="lbPrev">‹</button>
-    <button class="lb-next" id="lbNext">›</button>
-    <div class="lb-img-wrap"><img id="lbImg" src="" alt=""></div>
-    <p class="lb-counter" id="lbCounter"></p>
+  <!-- ══════════════ LIGHTBOX ══════════════ -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Galerie" hidden>
+    <div class="lb-bg" id="lbBg"></div>
+    <button class="lb-close" id="lbClose" aria-label="Zavřít">✕</button>
+    <button class="lb-btn lb-prev" id="lbPrev" aria-label="Předchozí">‹</button>
+    <button class="lb-btn lb-next" id="lbNext" aria-label="Další">›</button>
+    <figure class="lb-figure">
+      <img id="lbImg" src="" alt="">
+      <figcaption id="lbCaption" class="lb-caption"></figcaption>
+    </figure>
   </div>
 
   <script src="js/main.js"></script>
