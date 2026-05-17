@@ -22,6 +22,10 @@ HEADING_MAP = {
     'popis projektu': 'description',
     'popis': 'description',
     'kategorie': 'kategorie',
+    'typ realizace': 'kategorie',
+    'typ realizace:': 'kategorie',
+    'typ': 'kategorie',
+    'typ:': 'kategorie',
 }
 
 
@@ -91,13 +95,18 @@ def main():
     inspirations = []
 
     for entry in sorted(ASSETS_DIR.iterdir(), key=lambda x: natural_key(x.name)):
-        if not entry.is_dir():
-            continue
-        name_lower = entry.name.lower()
-        if 'realizace' in name_lower:
-            projects.append(build_album(entry))
-        elif 'inspirace' in name_lower:
-            inspirations.append(build_album(entry))
+            if not entry.is_dir():
+                continue
+            name_lower = entry.name.lower()
+            # Explicit inspirations keep their own bucket
+            if 'inspirace' in name_lower:
+                inspirations.append(build_album(entry))
+                continue
+            # Treat any folder that contains image files as a project (covers folders
+            # like "14. Bytový dům" which don't include the word 'realizace')
+            album = build_album(entry)
+            if album.get('photos'):
+                projects.append(album)
 
     # assign stable ids and num values for projects
     for idx, project in enumerate(projects, start=1):
