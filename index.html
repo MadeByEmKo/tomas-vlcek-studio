@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tomáš Vlček — home Interiors & Design</title>
   <meta name="description" content="Navrhuji a realizuji rezidenční a komerční interiéry od roku 1998. Design, kvalita, detail — Tomáš Vlček, Pyšely.">
-  <meta name="keywords" content="interiérový design, návrh interiéru, realizace interiéru, Tomáš Vlček, Praha, Pyšely, home interiors">
+  <meta name="keywords" content="interiérový design, návrh interiéru, realizace interiéru, Tomáš Vlček, Praha, Pyšely">
   <meta property="og:title" content="Tomáš Vlček — home Interiors & Design">
   <meta property="og:description" content="Navrhuji a realizuji interiéry od roku 1998.">
   <meta property="og:type" content="website">
@@ -17,26 +17,27 @@
 </head>
 <body>
 
-  <!-- Cursor follower -->
   <div class="cursor-dot" id="cursorDot"></div>
 
   <!-- ======== NAVIGATION ======== -->
   <nav id="navbar" class="navbar">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo" id="nav-logo-link">
-        <img src="assets/logo.jpg" alt="Tomáš Vlček — home Interiors & Design" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-        <span class="logo-text-fallback" style="display:none">TV <span>home Interiors & Design</span></span>
+      <a href="#hero" class="nav-logo" id="navLogoLink">
+        <div class="logo-wrap">
+          <img src="assets/logo.png" alt="Tomáš Vlček — home Interiors & Design" class="logo-img logo-dark" id="logoDark">
+          <span class="logo-text-fallback" id="logoFallback">TV <span>home Interiors & Design</span></span>
+        </div>
       </a>
       <div class="nav-links" id="navLinks">
         <a href="#o-mne"    class="nav-link" data-i18n="nav.about">O mně</a>
         <a href="#sluzby"   class="nav-link" data-i18n="nav.services">Služby</a>
-        <a href="#projekty" class="nav-link" data-i18n="nav.projects">Projekty</a>
-        <a href="#clanky"   class="nav-link" data-i18n="nav.articles">Články</a>
-        <a href="#recenze"  class="nav-link" data-i18n="nav.reviews">Recenze</a>
+        <a href="#projekty" class="nav-link" data-i18n="nav.projects">Ukázky prací</a>
+        <a href="#clanky"   class="nav-link" data-i18n="nav.articles">Zajímavosti</a>
+        <a href="#inspirace" class="nav-link" data-i18n="nav.inspiration">Inspirace</a>
         <a href="#kontakt"  class="nav-link" data-i18n="nav.contact">Kontakt</a>
       </div>
       <div class="nav-actions">
-        <button id="langToggle" class="lang-toggle" aria-label="Switch language">
+        <button id="langToggle" class="lang-toggle" aria-label="Přepnout jazyk">
           <span data-lang-label>EN</span>
         </button>
         <a href="#kontakt" class="btn-nav" data-i18n="nav.cta">Kontaktujte mě</a>
@@ -51,12 +52,12 @@
   <div class="mobile-menu" id="mobileMenu">
     <button class="mobile-close" id="mobileClose">✕</button>
     <nav class="mobile-nav">
-      <a href="#o-mne"    class="mobile-link" data-i18n="nav.about">O mně</a>
-      <a href="#sluzby"   class="mobile-link" data-i18n="nav.services">Služby</a>
-      <a href="#projekty" class="mobile-link" data-i18n="nav.projects">Projekty</a>
-      <a href="#clanky"   class="mobile-link" data-i18n="nav.articles">Články</a>
-      <a href="#recenze"  class="mobile-link" data-i18n="nav.reviews">Recenze</a>
-      <a href="#kontakt"  class="mobile-link" data-i18n="nav.contact">Kontakt</a>
+      <a href="#o-mne"     class="mobile-link" data-i18n="nav.about">O mně</a>
+      <a href="#sluzby"    class="mobile-link" data-i18n="nav.services">Služby</a>
+      <a href="#projekty"  class="mobile-link" data-i18n="nav.projects">Ukázky prací</a>
+      <a href="#clanky"    class="mobile-link" data-i18n="nav.articles">Zajímavosti</a>
+      <a href="#inspirace" class="mobile-link" data-i18n="nav.inspiration">Inspirace</a>
+      <a href="#kontakt"   class="mobile-link" data-i18n="nav.contact">Kontakt</a>
       <button class="lang-toggle lang-toggle-mobile" id="langToggleMobile"><span data-lang-label-mobile>EN</span></button>
     </nav>
   </div>
@@ -179,17 +180,13 @@
     </div>
   </section>
 
-  <!-- ======== PROJEKTY ======== -->
+  <!-- ======== UKÁZKY PRACÍ ======== -->
   <section id="projekty" class="section projects">
     <div class="container">
       <div class="section-head reveal">
         <p class="eyebrow" data-i18n="proj.eyebrow">Realizace</p>
         <h2 class="section-h" data-i18n="proj.h">Ukázky <em>prací</em></h2>
-      </div>
-      <div class="proj-filters reveal" id="projFilters">
-        <button class="filter-btn active" data-filter="all" data-i18n="proj.all">Vše</button>
-        <button class="filter-btn" data-filter="rezidenční" data-i18n="proj.res">Rezidenční</button>
-        <button class="filter-btn" data-filter="komerční"   data-i18n="proj.com">Komerční</button>
+        <p class="section-sub" data-i18n="proj.sub">Každý projekt je jedinečný příběh — od první konzultace po finální předání.</p>
       </div>
       <div class="proj-grid" id="projectGrid">
         <!-- Rendered by cms.js -->
@@ -197,7 +194,7 @@
     </div>
   </section>
 
-  <!-- ======== ČLÁNKY ======== -->
+  <!-- ======== ZAJÍMAVOSTI ======== -->
   <section id="clanky" class="section articles">
     <div class="container">
       <div class="section-head reveal">
@@ -210,20 +207,16 @@
     </div>
   </section>
 
-  <!-- ======== RECENZE ======== -->
-  <section id="recenze" class="section reviews">
+  <!-- ======== INSPIRACE ======== -->
+  <section id="inspirace" class="section inspiration">
     <div class="container">
       <div class="section-head reveal">
-        <p class="eyebrow" data-i18n="rev.eyebrow">Reference</p>
-        <h2 class="section-h" data-i18n="rev.h">Co říkají <em>klienti</em></h2>
+        <p class="eyebrow" data-i18n="ins.eyebrow">Inspirace</p>
+        <h2 class="section-h" data-i18n="ins.h">Inspirace pro váš <em>domov</em></h2>
+        <p class="section-sub" data-i18n="ins.sub">Výběr vizualizací a realizací, které mohou sloužit jako inspirace pro váš projekt.</p>
       </div>
-      <div class="reviews-track" id="reviewsTrack">
+      <div class="inspiration-grid" id="inspirationGrid">
         <!-- Rendered by cms.js -->
-      </div>
-      <div class="reviews-nav" id="reviewsNav">
-        <button class="rev-btn" id="revPrev" aria-label="Předchozí">←</button>
-        <div class="rev-dots" id="revDots"></div>
-        <button class="rev-btn" id="revNext" aria-label="Další">→</button>
       </div>
     </div>
   </section>
@@ -273,7 +266,6 @@
             </div>
             <button type="submit" class="btn-primary btn-full" id="formSubmit">
               <span data-i18n="con.send">Odeslat zprávu</span>
-              <span class="btn-spinner" style="display:none">⟳</span>
             </button>
             <div id="formMsg" class="form-status" style="display:none"></div>
           </form>
@@ -287,16 +279,16 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/logo.png" alt="Tomáš Vlček" class="footer-logo" onerror="this.style.display='none'">
+          <img src="assets/logo.png" alt="Tomáš Vlček" class="footer-logo">
           <p data-i18n="footer.tagline">Navrhuji interiéry, které odrážejí váš životní styl.</p>
         </div>
         <div class="footer-links">
-          <a href="#o-mne"    data-i18n="nav.about">O mně</a>
-          <a href="#sluzby"   data-i18n="nav.services">Služby</a>
-          <a href="#projekty" data-i18n="nav.projects">Projekty</a>
-          <a href="#clanky"   data-i18n="nav.articles">Články</a>
-          <a href="#recenze"  data-i18n="nav.reviews">Recenze</a>
-          <a href="#kontakt"  data-i18n="nav.contact">Kontakt</a>
+          <a href="#o-mne"     data-i18n="nav.about">O mně</a>
+          <a href="#sluzby"    data-i18n="nav.services">Služby</a>
+          <a href="#projekty"  data-i18n="nav.projects">Ukázky prací</a>
+          <a href="#clanky"    data-i18n="nav.articles">Zajímavosti</a>
+          <a href="#inspirace" data-i18n="nav.inspiration">Inspirace</a>
+          <a href="#kontakt"   data-i18n="nav.contact">Kontakt</a>
         </div>
         <div class="footer-contact">
           <a href="mailto:email@tomas-vlcek.com">email@tomas-vlcek.com</a>
@@ -314,13 +306,25 @@
     </div>
   </footer>
 
-  <!-- Article Modal -->
-  <div id="articleModal" class="modal" role="dialog" aria-modal="true">
+  <!-- ======== PROJECT MODAL (lightbox galerie) ======== -->
+  <div id="projectModal" class="modal" role="dialog" aria-modal="true">
     <div class="modal-overlay" id="modalOverlay"></div>
-    <div class="modal-box">
+    <div class="modal-box modal-box-wide">
       <button class="modal-close" id="modalClose">✕</button>
-      <div class="modal-content" id="modalContent"></div>
+      <div class="modal-inner" id="modalInner">
+        <!-- Project detail rendered here -->
+      </div>
     </div>
+  </div>
+
+  <!-- ======== LIGHTBOX ======== -->
+  <div id="lightbox" class="lightbox" role="dialog">
+    <div class="lb-overlay" id="lbOverlay"></div>
+    <button class="lb-close" id="lbClose">✕</button>
+    <button class="lb-prev" id="lbPrev">‹</button>
+    <button class="lb-next" id="lbNext">›</button>
+    <div class="lb-img-wrap"><img id="lbImg" src="" alt=""></div>
+    <p class="lb-counter" id="lbCounter"></p>
   </div>
 
   <script src="js/main.js"></script>
