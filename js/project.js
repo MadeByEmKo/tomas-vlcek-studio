@@ -117,7 +117,7 @@ function renderProjectDetail(lang) {
     return;
   }
 
-  const name = lang === 'en' && project.nazev_en ? project.nazev_en : project.nazev;
+  const name = project.nazev_txt || (lang === 'en' && project.nazev_en ? project.nazev_en : project.nazev);
   const desc = lang === 'en' && project.popis_en ? project.popis_en : project.popis;
   const designLabel = lang === 'en' ? 'Design' : 'Návrh';
   const realLabel = lang === 'en' ? 'Realization' : 'Realizace';
@@ -127,7 +127,14 @@ function renderProjectDetail(lang) {
 
   document.title = `${name} — Tomáš Vlček`;
   document.getElementById('projectPageTitle').textContent = name;
-  document.getElementById('projectPageSubtitle').textContent = project.kategorie || '';
+  // Show single eyebrow 'Realizace' and append type if available
+  const eyebrow = document.querySelector('.eyebrow');
+  if (eyebrow) {
+    const type = project.typ_realizace || project.kategorie || '';
+    eyebrow.textContent = type ? `Realizace — ${type}` : 'Realizace';
+  }
+  // clear subtitle to avoid duplicate 'Realizace' text
+  document.getElementById('projectPageSubtitle').textContent = '';
   document.getElementById('projectNum').textContent = project.num || '';
   document.getElementById('projectDescription').textContent = desc;
   document.getElementById('projectCta').textContent = ctaLabel;

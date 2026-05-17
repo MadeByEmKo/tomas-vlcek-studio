@@ -17,11 +17,13 @@ async function loadAssetManifest() {
         if (!response.ok) throw new Error(`Unable to load asset manifest: ${response.status}`);
         return response.json();
       })
-      .then(data => {
-        const projects = (data.projects || []).map(p => ({
+      .then(async data => {
+        const rawProjects = (data.projects || []);
+        const projects = rawProjects.map(p => ({
           id: p.id,
           num: p.num,
           folder: p.folder,
+          // manifest title is fallback; we'll try to override from text file
           nazev: p.title || p.folder,
           nazev_en: p.title || p.folder,
           popis: p.description || '',
@@ -31,7 +33,35 @@ async function loadAssetManifest() {
           realizace: p.realizace || '',
           vyroba: p.vyroba || '',
           photos: p.photos || [],
+          textFile: p.textFile || null,
         }));
+
+        // If a project provides a textFile, fetch and parse it for 'Název projektu' and 'Typ realizace'
+        await Promise.all(projects.map(async proj => {
+          if (!proj.textFile) return;
+          try {
+            const url = encodeURI(`assets/${proj.folder}/${proj.textFile}`);
+            const r = await fetch(url);
+            if (!r.ok) return;
+            const txt = await r.text();
+            const lines = txt.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+            lines.forEach(line => {
+              const parts = line.split(':');
+              if (parts.length < 2) return;
+              const key = parts[0].trim().toLowerCase();
+              const value = parts.slice(1).join(':').trim();
+              if (key.includes('název') || key.includes('nazev')) {
+                proj.nazev_txt = value;
+              }
+              if (key.includes('typ') || key.includes('druh') || key.includes('kategorie')) {
+                proj.typ_realizace = value;
+              }
+            });
+          } catch (err) {
+            console.warn('Failed to load textFile for', proj.folder, err);
+          }
+        }));
+
         window.PROJECTS = projects;
         window.INSPIRATIONS = data.inspirations || [];
         return { projects: window.PROJECTS, inspirations: window.INSPIRATIONS };
