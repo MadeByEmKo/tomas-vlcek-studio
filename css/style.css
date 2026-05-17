@@ -92,6 +92,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-radius: var(--radius);
 }
 .btn-nav:hover { background: var(--primary); color: #fff; }
+.project-actions .btn-nav,
+#projectNextLink {
+  background: var(--gold);
+  color: var(--primary);
+  border-color: transparent;
+}
+.project-actions .btn-nav:hover,
+#projectNextLink:hover {
+  background: var(--gold-lt);
+  color: var(--primary);
+}
 
 .navbar.scrolled .btn-nav { border-color: var(--primary); }
 
