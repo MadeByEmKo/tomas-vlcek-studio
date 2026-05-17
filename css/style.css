@@ -139,8 +139,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .navbar.navbar-white .nav-link::after {background: var(--primary);}
 .nav-inner { max-width: 1240px; margin: 0 auto; padding: 0 2rem; height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
 .nav-logo { flex-shrink: 0; }
-.logo-wrap { display: flex; align-items: center; background: rgba(255,255,255,.92); padding: .25rem .45rem; border-radius: 12px; }
+.logo-wrap { display: flex; align-items: center; background: transparent; padding: 0; border-radius: 0; }
 .logo-img { height: 52px; width: auto; mix-blend-mode: multiply; transition: filter .4s, mix-blend-mode .4s; }
+.logo-light { display: none; }
+.navbar.navbar-white .logo-light { display: inline; }
+.navbar.navbar-white .logo-dark { display: none; }
+.navbar:not(.navbar-white) .logo-dark { display: inline; }
+.navbar:not(.navbar-white) .logo-light { display: none; }
 .navbar.scrolled .logo-img { mix-blend-mode: normal; }
 .logo-text-fallback { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; display: none; }
 .logo-text-fallback span { font-size: .7rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); display: block; }
@@ -256,7 +261,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   min-height: 340px;
   display: flex;
   align-items: center;
-  color: #fff;
+  color: var(--primary);
+  background: #faf8f4;
 }
 .project-page-hero-bg,
 .project-page-hero-overlay {
@@ -266,10 +272,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .project-page-hero-bg {
   background-size: cover;
   background-position: center;
-  filter: brightness(0.45);
+  filter: brightness(0.9);
 }
 .project-page-hero-overlay {
-  background: linear-gradient(180deg, rgba(10,8,5,.16) 0%, rgba(10,8,5,.82) 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,.6) 0%, rgba(255,255,255,.95) 100%);
 }
 .project-page-hero-content {
   position: relative;
@@ -283,18 +289,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   gap: .5rem;
   font-size: .82rem;
-  color: rgba(255,255,255,.8);
+  color: rgba(0,0,0,.6);
   margin-bottom: 1rem;
 }
 .project-breadcrumb a {
-  color: rgba(255,255,255,.9);
+  color: rgba(0,0,0,.8);
   text-decoration: none;
 }
 .project-breadcrumb a:hover {
-  color: #fff;
+  color: var(--primary);
 }
 .breadcrumb-sep {
-  color: rgba(255,255,255,.5);
+  color: rgba(0,0,0,.3);
 }
 .project-detail {
   padding-top: 3rem;

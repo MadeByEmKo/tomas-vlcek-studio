@@ -30,7 +30,6 @@ function renderProjectDetail(lang) {
   document.getElementById('projectPageBreadcrumb').textContent = name;
   document.getElementById('projectPageSubtitle').textContent = project.kategorie || '';
   document.getElementById('projectNum').textContent = project.num || '';
-  document.getElementById('projectName').textContent = name;
   document.getElementById('projectDescription').textContent = desc;
   document.getElementById('projectCta').textContent = ctaLabel;
   document.getElementById('projectHeroBg').style.backgroundImage = `url('${photoPath(project, project.photos[0])}')`;
