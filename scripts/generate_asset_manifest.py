@@ -69,6 +69,39 @@ def parse_text_file(path: Path):
 def build_album(folder: Path):
     files = sorted(folder.iterdir(), key=lambda x: natural_key(x.name))
     photos = [f.name for f in files if f.suffix.lower() in IMAGE_EXTENSIONS]
+    # Normalize photo filenames: if manifest candidate doesn't match an actual
+    # file name (possible copies with prefixes/suffixes), try heuristics to
+    # map to an existing filename so UI doesn't reference missing files.
+    normalized = []
+    for name in photos:
+        candidate = folder / name
+        if candidate.exists():
+            normalized.append(name)
+            continue
+        # Try stripping leading underscores
+        alt = name.lstrip('_')
+        if (folder / alt).exists():
+            normalized.append(alt)
+            continue
+        # Try removing ' kopie' (case-insensitive)
+        alt2 = re.sub(r'\s+kopie', '', name, flags=re.I)
+        if (folder / alt2).exists():
+            normalized.append(alt2)
+            continue
+        # Try removing ' orez' or ' orez kopie'
+        alt3 = re.sub(r'\s+orez', '', alt2, flags=re.I)
+        if (folder / alt3).exists():
+            normalized.append(alt3)
+            continue
+        # As a last resort, try removing leading underscore and any trailing ' kopie' markers
+        alt4 = re.sub(r'^_+', '', name)
+        alt4 = re.sub(r'\s+kopie', '', alt4, flags=re.I)
+        if (folder / alt4).exists():
+            normalized.append(alt4)
+            continue
+        # If nothing matched, keep original name (may result in broken link)
+        normalized.append(name)
+    photos = normalized
     text_file = next((f for f in files if f.suffix.lower() in TEXT_EXTENSIONS), None)
     meta = parse_text_file(text_file) if text_file else {}
     title = meta.get('title') or folder.name
