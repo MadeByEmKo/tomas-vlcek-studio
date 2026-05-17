@@ -170,14 +170,14 @@ function renderProjects(lang) {
     const cover = photoPath(p, p.photos[0]);
     const viewTxt = lang === 'en' ? 'View project →' : 'Zobrazit realizaci →';
     return `
-    <div class="proj-card reveal" data-id="${p.id}" onclick="openProject(${p.id})">
+    <a href="project.html?id=${p.id}" class="proj-card reveal" data-id="${p.id}">
       <img src="${cover}" alt="${name}" loading="lazy" onerror="this.src='assets/hero.jpg'">
       <div class="proj-overlay">
         <p class="proj-cat">${p.num} — ${p.kategorie}</p>
         <p class="proj-name">${name}</p>
         <p class="proj-arrow">${viewTxt}</p>
       </div>
-    </div>`;
+    </a>`;
   }).join('');
   grid.querySelectorAll('.reveal').forEach((el, i) => {
     setTimeout(() => el.classList.add('visible'), 80 * i);

@@ -32,7 +32,7 @@ const TRANSLATIONS = {
     'srv.p6':'Objednání všech profesí','srv.p7':'Stavební příprava',
     'srv.p8':'Realizace — montáž interiérů','srv.p9':'Předávka — ukončení',
     'proj.eyebrow':'Realizace','proj.h':'Ukázky <em>prací</em>',
-    'proj.all':'Vše','proj.res':'Rezidenční','proj.com':'Komerční',
+    'proj.back':'Zpět na ukázky','proj.all':'Vše','proj.res':'Rezidenční','proj.com':'Komerční',
     'art.eyebrow':'Zajímavosti','art.h':'Ze světa <em>interiérového</em> designu',
     'rev.eyebrow':'Reference','rev.h':'Co říkají <em>klienti</em>',
     'con.eyebrow':'Kontakt','con.h':'Pojďme <em>spolupracovat</em>',
@@ -69,7 +69,7 @@ const TRANSLATIONS = {
     'srv.p6':'Ordering all trades','srv.p7':'Site preparation',
     'srv.p8':'Realization — interior assembly','srv.p9':'Handover — completion',
     'proj.eyebrow':'Portfolio','proj.h':'Our <em>work</em>',
-    'proj.all':'All','proj.res':'Residential','proj.com':'Commercial',
+    'proj.back':'Back to projects','proj.all':'All','proj.res':'Residential','proj.com':'Commercial',
     'art.eyebrow':'Insights','art.h':'From the world of <em>interior</em> design',
     'rev.eyebrow':'Testimonials','rev.h':'What our <em>clients</em> say',
     'con.eyebrow':'Contact','con.h':'Let\'s <em>collaborate</em>',
@@ -104,6 +104,7 @@ function applyLang(lang) {
 
   // Re-render dynamic content in new language
   if (window.renderCMS) window.renderCMS(lang);
+  if (window.renderProjectDetail) window.renderProjectDetail(lang);
 }
 
 // ── Navbar scroll ────────────────────────────────────────────

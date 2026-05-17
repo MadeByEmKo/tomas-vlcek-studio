@@ -227,7 +227,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ---------- Projects ---------- */
 .projects { background: var(--bg); }
 .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-.proj-card { position: relative; overflow: hidden; border-radius: var(--radius); aspect-ratio: 4/3; cursor: pointer; }
+.proj-card { position: relative; overflow: hidden; border-radius: var(--radius); aspect-ratio: 4/3; cursor: pointer; display: block; }
 .proj-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease-out); }
 .proj-card:hover img { transform: scale(1.07); }
 .proj-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,8,5,.88) 0%, rgba(10,8,5,.1) 60%, transparent 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; transition: opacity .4s; }
@@ -235,6 +235,144 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .proj-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #fff; font-weight: 400; }
 .proj-arrow { font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-top: .4rem; transition: color .25s; }
 .proj-card:hover .proj-arrow { color: var(--gold-lt); }
+
+.project-page-hero {
+  position: relative;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+.project-page-hero-bg,
+.project-page-hero-overlay {
+  position: absolute;
+  inset: 0;
+}
+.project-page-hero-bg {
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.45);
+}
+.project-page-hero-overlay {
+  background: linear-gradient(180deg, rgba(10,8,5,.3) 0%, rgba(10,8,5,.9) 100%);
+}
+.project-page-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+.project-detail-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 3rem;
+  align-items: start;
+}
+.project-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.project-main-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: #f5f2ee;
+}
+.project-main-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16/10;
+  object-fit: contain;
+}
+.project-lightbox-btn {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  background: rgba(0,0,0,.65);
+  color: #fff;
+  border-radius: 999px;
+  padding: .7rem 1rem;
+  border: none;
+  font-size: .9rem;
+}
+.project-thumbs {
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+.project-thumb {
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  overflow: hidden;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.project-thumb.active,
+.project-thumb:hover {
+  border-color: var(--gold);
+}
+.project-thumb img {
+  display: block;
+  width: 100%;
+  height: 72px;
+  object-fit: cover;
+}
+.project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.project-num {
+  font-size: .85rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.project-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.05;
+}
+.project-meta {
+  display: grid;
+  gap: .85rem;
+}
+.project-meta-row {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+}
+.project-meta-row span {
+  font-weight: 600;
+  color: var(--muted);
+  min-width: 110px;
+}
+.project-meta-row p {
+  margin: 0;
+  color: var(--primary);
+}
+.project-desc {
+  max-width: 680px;
+}
+.project-cta {
+  width: fit-content;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .project-detail-grid { grid-template-columns: 1fr; }
+  .project-page-hero { min-height: 280px; }
+}
+
+@media (max-width: 680px) {
+  .project-page-hero-content { padding: 2rem 1.25rem; }
+  .project-thumbs { gap: .5rem; }
+  .project-thumb img { height: 60px; }
+}
 
 /* ---------- Inspiration ---------- */
 .inspiration { background: var(--bg-soft); }
