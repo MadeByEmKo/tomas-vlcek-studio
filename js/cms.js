@@ -89,7 +89,7 @@ const PROJECTS = [
     navrh: 'Tomáš Vlček',
     realizace: 'Tomáš Vlček',
     folder: '9. realizace Dětský pokoj',
-    photos: ['1-edit.jpg','2-edit.jpg','3-edit.jpg','4-edit.jpg']
+    photos: ['1-edit.jpg','2-edit.jpg','4-edit.jpg','6-edit.jpg']
   },
   {
     id: 8, num: '08',
@@ -100,7 +100,7 @@ const PROJECTS = [
     navrh: 'Tomáš Vlček',
     realizace: 'Tomáš Vlček',
     folder: '10. realizace Kuchyň jako srdce',
-    photos: ['1_KUCHYNĚ CHMELÍK.jpg','2_CHMELÍK.jpg','3_CHMELÍK.jpg','4_CHMELÍK.jpg']
+    photos: ['1_KUCHYNĚ CHMELÍK.jpg','2_KUCHYNĚ_CHMELÍK.jpg','3_KUCHYNĚ_CHMELÍK.jpg','4_KUCHYNĚ_CHMELÍK.jpg']
   },
   {
     id: 9, num: '09',
