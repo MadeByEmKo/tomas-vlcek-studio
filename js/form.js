@@ -4,7 +4,7 @@
 
 'use strict';
 
-const FORM_API_URL = 'YOUR_APPS_SCRIPT_URL_HERE'; // same URL as in cms.js
+const FORM_API_URL = 'https://script.google.com/macros/s/AKfycbw2nek2df3jPkD2Su9vvMOMEBnAEMn0eM2MvEc3PmIJxtqSv1HnSV9MZzKQgd3Bql05aQ/exec'; // same URL as in cms.js
 
 const form       = document.getElementById('contactForm');
 const submitBtn  = document.getElementById('formSubmit');
