@@ -535,7 +535,7 @@ a.contact-val:hover { color: var(--gold); }
 /* ---------- Footer ---------- */
 .footer { background: var(--primary); color: rgba(255,255,255,.75); padding: 4rem 0 2rem; }
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-.footer-logo { height: 52px; width: auto; filter: invert(1) brightness(2); margin-bottom: 1rem; }
+.footer-logo { height: 52px; width: auto; filter: none; mix-blend-mode: normal; margin-bottom: 1rem; }
 .footer-brand p { font-size: .9rem; line-height: 1.7; }
 .footer-links, .footer-contact { display: flex; flex-direction: column; gap: .8rem; }
 .footer-links a, .footer-contact a, .footer-contact p { font-size: .85rem; transition: color .25s; }
