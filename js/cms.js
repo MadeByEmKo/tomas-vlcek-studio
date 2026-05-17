@@ -155,12 +155,20 @@ window.renderCMS = function(lang) {
   fetch(`${CMS_API_URL}?action=all`)
     .then(r => r.json())
     .then(data => {
-      if (data.projects) renderProjects(data.projects, lang);
-      else renderProjects(STATIC.projects, lang);
-      if (data.articles) renderArticles(data.articles, lang);
-      else renderArticles(STATIC.articles, lang);
-      if (data.reviews)  renderReviews(data.reviews, lang);
-      else renderReviews(STATIC.reviews, lang);
+      // Normalize API keys (Sheets returns snake_case like foto_url)
+      const norm = arr => (arr || []).map(o => ({
+        ...o,
+        foto:    o.foto    || o.foto_url || '',
+        obsah:   o.obsah   || o.obsah_text || '',
+        obsah_en: o.obsah_en || '',
+        text:    o.text    || o.text_cs || '',
+      }));
+      const projects = norm(data.projects);
+      const articles = norm(data.articles);
+      const reviews  = norm(data.reviews);
+      renderProjects(projects.length ? projects : STATIC.projects, lang);
+      renderArticles(articles.length ? articles : STATIC.articles, lang);
+      renderReviews( reviews.length  ? reviews  : STATIC.reviews,  lang);
     })
     .catch(() => {
       renderProjects(STATIC.projects, lang);
