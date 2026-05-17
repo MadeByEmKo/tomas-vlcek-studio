@@ -1,83 +1,73 @@
 /* ============================================================
-   form.js — Contact form submission via Apps Script
+   form.js — Contact form with validation & Apps Script API
    ============================================================ */
-
 'use strict';
 
-const FORM_API_URL = 'https://script.google.com/macros/s/AKfycbw2nek2df3jPkD2Su9vvMOMEBnAEMn0eM2MvEc3PmIJxtqSv1HnSV9MZzKQgd3Bql05aQ/exec'; // same URL as in cms.js
+const API_URL = 'https://script.google.com/macros/s/AKfycbw2nek2df3jPkD2Su9vvMOMEBnAEMn0eM2MvEc3PmIJxtqSv1HnSV9MZzKQgd3Bql05aQ/exec';
 
-const form       = document.getElementById('contactForm');
-const submitBtn  = document.getElementById('formSubmit');
-const formMsg    = document.getElementById('formMsg');
+const form    = document.getElementById('contactForm');
+const submit  = document.getElementById('formSubmit');
+const statusEl = document.getElementById('formMsg');
 
-if (form) {
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const lang = localStorage.getItem('tv_lang') || 'cs';
+if (!form) throw new Error('Contact form not found');
 
-    // Basic validation
-    const name    = form.name.value.trim();
-    const email   = form.email.value.trim();
-    const message = form.message.value.trim();
-    if (!name || !email || !message) {
-      showMsg(lang === 'en' ? 'Please fill in all required fields.' : 'Vyplňte prosím všechna povinná pole.', 'error');
-      return;
-    }
-
-    // Loading state
-    submitBtn.disabled = true;
-    submitBtn.querySelector('span[data-i18n]').style.opacity = '0.5';
-
-    const body = { action: 'contact', name, email, phone: form.phone.value.trim(), message };
-
-    if (FORM_API_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
-      // Simulate success (no API yet)
-      await new Promise(r => setTimeout(r, 800));
-      showMsg(
-        lang === 'en'
-          ? '✓ Thank you! Your message has been sent. I\'ll be in touch soon.'
-          : '✓ Děkuji! Vaše zpráva byla odeslána. Ozvu se vám co nejdříve.',
-        'success'
-      );
-      form.reset();
-      submitBtn.disabled = false;
-      submitBtn.querySelector('span[data-i18n]').style.opacity = '1';
-      return;
-    }
-
-    try {
-      const res  = await fetch(FORM_API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
-      const data = await res.json();
-      if (data.status === 'ok') {
-        showMsg(
-          lang === 'en'
-            ? '✓ Thank you! Your message has been sent. I\'ll be in touch soon.'
-            : '✓ Děkuji! Vaše zpráva byla odeslána. Ozvu se vám co nejdříve.',
-          'success'
-        );
-        form.reset();
-      } else throw new Error();
-    } catch {
-      showMsg(
-        lang === 'en'
-          ? 'Something went wrong. Please try again or email us directly.'
-          : 'Něco se pokazilo. Zkuste to prosím znovu nebo nám napište přímo na email.',
-        'error'
-      );
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.querySelector('span[data-i18n]').style.opacity = '1';
-    }
+// ── Validation ────────────────────────────────────────────────
+function validate() {
+  let ok = true;
+  form.querySelectorAll('[required]').forEach(el => {
+    const valid = el.value.trim() !== '' && (el.type !== 'email' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value));
+    el.classList.toggle('invalid', !valid);
+    if (!valid) ok = false;
   });
+  return ok;
 }
 
-function showMsg(text, type) {
-  formMsg.textContent = text;
-  formMsg.className = `form-status ${type}`;
-  formMsg.style.display = 'block';
-  setTimeout(() => { formMsg.style.display = 'none'; }, 7000);
+form.querySelectorAll('input, textarea').forEach(el => {
+  el.addEventListener('input', () => el.classList.remove('invalid'));
+});
+
+// ── Status message ────────────────────────────────────────────
+function showStatus(msg, type) {
+  statusEl.textContent = msg;
+  statusEl.className   = `form-status ${type}`;
+  statusEl.hidden      = false;
+  setTimeout(() => { statusEl.hidden = true; }, 7000);
 }
+
+// ── Submit ────────────────────────────────────────────────────
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  if (!validate()) return;
+
+  const lang = localStorage.getItem('tv_lang') || 'cs';
+  const btnText = submit.querySelector('span');
+
+  submit.disabled  = true;
+  btnText.textContent = lang === 'en' ? 'Sending…' : 'Odesílám…';
+
+  const body = new URLSearchParams({
+    action:  'contact',
+    name:    form.querySelector('[name="name"]').value.trim(),
+    email:   form.querySelector('[name="email"]').value.trim(),
+    phone:   form.querySelector('[name="phone"]').value.trim(),
+    message: form.querySelector('[name="message"]').value.trim(),
+  });
+
+  try {
+    const res  = await fetch(API_URL, { method: 'POST', body });
+    const data = await res.json();
+
+    if (data.status === 'ok') {
+      showStatus(lang === 'en' ? '✓ Your message was sent successfully. I will get back to you shortly.' : '✓ Zpráva byla úspěšně odeslána. Brzy se vám ozvu.', 'ok');
+      form.reset();
+    } else {
+      throw new Error(data.message || 'Server error');
+    }
+  } catch (err) {
+    console.error('[Form]', err);
+    showStatus(lang === 'en' ? '✗ Something went wrong. Please try again or email directly.' : '✗ Něco se pokazilo. Zkuste to znovu nebo napište přímo e-mailem.', 'err');
+  } finally {
+    submit.disabled  = false;
+    btnText.textContent = lang === 'en' ? 'Send Message' : 'Odeslat zprávu';
+  }
+});
