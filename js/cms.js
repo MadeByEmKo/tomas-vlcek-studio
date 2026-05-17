@@ -4,148 +4,47 @@
 'use strict';
 
 const CMS_API_URL = 'https://script.google.com/macros/s/AKfycbw2nek2df3jPkD2Su9vvMOMEBnAEMn0eM2MvEc3PmIJxtqSv1HnSV9MZzKQgd3Bql05aQ/exec';
+const ASSET_MANIFEST_URL = 'assets/asset-manifest.json';
 
-// ── Lokální projektová alba (reálné fotky z assets/) ────────
-const PROJECTS = [
-  {
-    id: 1, num: '01',
-    nazev: 'V klidu a pohodově', nazev_en: 'In Peace and Comfort',
-    kategorie: 'rezidenční',
-    popis: 'Majitel domu již má něco odžito – a právě díky tomu přesně ví, co očekává od svého domova. V rozsáhlém projektu vybavení této rodinné rezidence se odráží nejen jeho životní zkušenosti, ale i touha po harmonii, pohodlí a estetické vyváženosti. Dominantním prvkem je dotek přírodních dřevin na nábytku a obkladech, který v kombinaci se zemitými tóny v ultramatu vytváří hřejivou a nadčasovou atmosféru.',
-    popis_en: 'The homeowner has lived enough to know exactly what he expects from his home. This comprehensive project reflects not only his life experience but also a desire for harmony, comfort and aesthetic balance. The dominant element is the touch of natural wood on furniture and cladding, which in combination with earthy tones in ultra-matte finish creates a warm and timeless atmosphere.',
-    navrh: 'Ing. arch. Jiří Vlček / klient',
-    realizace: 'Tomáš Vlček',
-    vyroba: 'INFINI a.s.',
-    folder: '4. realizace V klidu',
-    photos: [
-      '1_KUCHYNĚ BRNO.png','2_KUCHYNĚ BRNO.png','3_KUCHYNĚ BRNO.png',
-      '4_KUCHYNĚ DETAIL DESKA.png','5_KUCHYNĚ DETAIL SKŘÍNĚ.png','6_KUCHYNĚ DETAIL.png',
-      '9_JÍDELNÍ STŮL.png','10_JÍDELNÍ STŮL DETAIL.png','11_HOSTOVSKÝ POKOJ BRNO.png',
-      '16_KNIHOVNA BRNO.png','19_KOUPELNA MASTER BRNO.png','21_KLUB BRNO.png'
-    ]
-  },
-  {
-    id: 2, num: '02',
-    nazev: 'Bílá nebo Bílá', nazev_en: 'White or White',
-    kategorie: 'rezidenční',
-    popis: 'Čistota, světlo a vzdušnost. Projekt postavený na monochromní bílé paletě, která díky různým texturám a povrchům získává hloubku a charakter. Každý detail je promyšlený — od výběru materiálů po rozmístění nábytku.',
-    popis_en: 'Purity, light and airiness. A project built on a monochromatic white palette that gains depth and character through different textures and surfaces. Every detail is carefully considered — from material selection to furniture placement.',
-    navrh: 'Tomáš Vlček',
-    realizace: 'Tomáš Vlček',
-    folder: '2. realizace Bílá nebo Bílá',
-    subfolder: 'Orig',
-    photos: ['1_SR.jpg','2_SR.jpg','3_SR.jpg','4_SR.jpg','5_SR.jpg']
-  },
-  {
-    id: 3, num: '03',
-    nazev: 'Černobílá realizace', nazev_en: 'Black & White',
-    kategorie: 'rezidenční',
-    popis: 'Kontrast jako designový princip. Projekt využívá dramatické napětí mezi černou a bílou — dvěma barvami, které spolu vytvářejí elegantní a nadčasový interiér s výraznou osobností.',
-    popis_en: 'Contrast as a design principle. The project uses the dramatic tension between black and white — two colours that together create an elegant and timeless interior with a distinct personality.',
-    navrh: 'Tomáš Vlček',
-    realizace: 'Tomáš Vlček',
-    folder: '3. realizace Černobilá realizace',
-    photos: ['1_MB.jpg','2_MB.jpg','3_MB.jpg','4_MB.jpg','5_MB.jpg']
-  },
-  {
-    id: 4, num: '04',
-    nazev: 'Rekonstrukce staršího domu', nazev_en: 'Older House Renovation',
-    kategorie: 'rezidenční',
-    popis: 'Přeměna staršího rodinného domu v moderní a funkční domov. Při zachování původního charakteru stavby byly doplněny moderní prvky, kvalitní materiály a chytrá úložná řešení.',
-    popis_en: 'Transformation of an older family house into a modern and functional home. While preserving the original character of the building, modern elements, quality materials and smart storage solutions were added.',
-    navrh: 'Tomáš Vlček',
-    realizace: 'Tomáš Vlček',
-    folder: '5. realizace Rek staršího domu',
-    photos: ['1_BŘEVNOV.jpg','2_BŘEVNOV.jpg','3_BŘEVNOV.jpg','4_BŘEVNOV.jpg','5_BŘEVNOV.jpg']
-  },
-  {
-    id: 5, num: '05',
-    nazev: 'Malý byt s velkým efektem', nazev_en: 'Small Flat, Big Impact',
-    kategorie: 'rezidenční',
-    popis: 'Důkaz, že i na malém prostoru lze dosáhnout velkého designového efektu. Každý centimetr je využit s rozmyslem — inteligentní dispozice, multifunkční nábytek a promyšlená barevná paleta.',
-    popis_en: 'Proof that even a small space can achieve a big design impact. Every centimetre is used thoughtfully — intelligent layout, multifunctional furniture and a carefully chosen colour palette.',
-    navrh: 'Tomáš Vlček',
-    realizace: 'Tomáš Vlček',
-    folder: '6. realizace Malý byt s velkým efektem',
-    photos: ['1_BRNO BYT.jpg','2_BRNO BYT.jpg','3_BRNO BYT.jpg','4_BRNO BYT.jpg']
-  },
-  {
-    id: 6, num: '06',
-    nazev: 'Nájem', nazev_en: 'Rental Apartment',
-    kategorie: 'rezidenční',
-    popis: 'Nájem nemusí znamenat kompromis na designu. Tento projekt ukazuje, jak lze i pronajatý byt proměnit ve stylový a osobitý domov s minimálními zásahy do původní dispozice.',
-    popis_en: 'Renting does not have to mean compromising on design. This project shows how even a rented flat can be transformed into a stylish and distinctive home with minimal changes to the original layout.',
-    navrh: 'Tomáš Vlček',
-    realizace: 'Tomáš Vlček',
-    folder: '7. realizace Nájem',
-    photos: ['1_RUZYNĚ.jpg','2_RUZYNĚ.jpg','3_RUZYNĚ.jpg']
-  },
-  {
-    id: 7, num: '07',
-    nazev: 'Dětský pokoj', nazev_en: 'Children\'s Room',
-    kategorie: 'rezidenční',
-    popis: 'Hravý, bezpečný a zároveň estetický dětský pokoj, který poroste s dítětem. Flexibilní nábytek, stimulující prostředí a dostatek místa pro hraní i odpočinek.',
-    popis_en: 'A playful, safe and aesthetically pleasing children\'s room that grows with the child. Flexible furniture, a stimulating environment and plenty of space for play and rest.',
-    navrh: 'Tomáš Vlček',
-    realizace: 'Tomáš Vlček',
-    folder: '9. realizace Dětský pokoj',
-    photos: ['1-edit.jpg','2-edit.jpg','4-edit.jpg','6-edit.jpg']
-  },
-  {
-    id: 8, num: '08',
-    nazev: 'Kuchyň jako srdce domu', nazev_en: 'Kitchen as the Heart of Home',
-    kategorie: 'rezidenční',
-    popis: 'Kuchyň je srdcem každého domova. Tento projekt klade důraz na propojení estetiky a funkčnosti — pracovní prostor, který raduje oko i usnadňuje každodenní vaření.',
-    popis_en: 'The kitchen is the heart of every home. This project emphasises the connection between aesthetics and functionality — a workspace that pleases the eye and makes everyday cooking easier.',
-    navrh: 'Tomáš Vlček',
-    realizace: 'Tomáš Vlček',
-    folder: '10. realizace Kuchyň jako srdce',
-    photos: ['1_KUCHYNĚ CHMELÍK.jpg','2_KUCHYNĚ_CHMELÍK.jpg','3_KUCHYNĚ_CHMELÍK.jpg','4_KUCHYNĚ_CHMELÍK.jpg']
-  },
-  {
-    id: 9, num: '09',
-    nazev: 'Kuchyň s duší', nazev_en: 'Kitchen with Soul',
-    kategorie: 'rezidenční',
-    popis: 'Každá kuchyň má svůj příběh. Tento projekt vytváří prostor, kde se vaří s radostí a kde se rodina ráda setkává — teplé materiály, kvalitní zpracování a promyšlené detaily.',
-    popis_en: 'Every kitchen has its own story. This project creates a space where cooking is a joy and where the family loves to gather — warm materials, quality craftsmanship and thoughtful details.',
-    navrh: 'Tomáš Vlček',
-    realizace: 'Tomáš Vlček',
-    folder: '11. realizace Kuchyň s duší',
-    photos: ['1_Šafr.jpg','2_Šafr.jpg','3_Šafr.jpg']
-  },
-  {
-    id: 10, num: '10',
-    nazev: 'Studentský pokoj', nazev_en: 'Student Room',
-    kategorie: 'rezidenční',
-    popis: 'Funkční a stylové zázemí pro studenta. Projekt řeší chytré využití prostoru, dostatek úložných míst a příjemné prostředí pro studium i relaxaci.',
-    popis_en: 'Functional and stylish accommodation for a student. The project addresses smart use of space, sufficient storage and a pleasant environment for study and relaxation.',
-    navrh: 'Tomáš Vlček',
-    realizace: 'Tomáš Vlček',
-    folder: '12. realizace Studentsky pokoj',
-    photos: ['1_POKOJ.jpg','2_POKOJ.jpg','3_POKOJ.jpg']
-  },
-  {
-    id: 11, num: '11',
-    nazev: 'Výstava Miele 2008', nazev_en: 'Miele Exhibition 2008',
-    kategorie: 'komerční',
-    popis: 'Návrh a realizace výstavního prostoru pro značku Miele. Projekt kladl důraz na prezentaci produktů v atraktivním a funkčním designovém prostředí.',
-    popis_en: 'Design and realization of an exhibition space for the Miele brand. The project focused on presenting products in an attractive and functional design environment.',
-    navrh: 'Tomáš Vlček',
-    realizace: 'Tomáš Vlček',
-    folder: '8. realizace Výstava 2008 Miele',
-    photos: ['P9290018[W].jpg','P9290019[W].jpg','P9290020[W].jpg']
+window.PROJECTS = [];
+window.INSPIRATIONS = [];
+window.assetManifestPromise = null;
+
+async function loadAssetManifest() {
+  if (!window.assetManifestPromise) {
+    window.assetManifestPromise = fetch(ASSET_MANIFEST_URL)
+      .then(response => {
+        if (!response.ok) throw new Error(`Unable to load asset manifest: ${response.status}`);
+        return response.json();
+      })
+      .then(data => {
+        const projects = (data.projects || []).map(p => ({
+          id: p.id,
+          num: p.num,
+          folder: p.folder,
+          nazev: p.title || p.folder,
+          nazev_en: p.title || p.folder,
+          popis: p.description || '',
+          popis_en: p.description || '',
+          kategorie: p.category || 'Realizace',
+          navrh: p.design || '',
+          realizace: p.realizace || '',
+          vyroba: p.vyroba || '',
+          photos: p.photos || [],
+        }));
+        window.PROJECTS = projects;
+        window.INSPIRATIONS = data.inspirations || [];
+        return { projects: window.PROJECTS, inspirations: window.INSPIRATIONS };
+      })
+      .catch(error => {
+        console.warn('Asset manifest loading failed:', error);
+        window.PROJECTS = [];
+        window.INSPIRATIONS = [];
+        return { projects: [], inspirations: [] };
+      });
   }
-];
-
-// ── Inspirace album ──────────────────────────────────────────
-const INSPIRATION_PHOTOS = [
-  'assets/Inspirace Dům 6/01_12.jpg',
-  'assets/Inspirace Dům 6/02_12.jpg',
-  'assets/Inspirace Dům 6/03_12.jpg',
-  'assets/Inspirace Dům 6/04_12.jpg',
-  'assets/Inspirace Dům 6/05_12.jpg',
-  'assets/Inspirace Dům 6/06_12.jpg',
-];
+  return window.assetManifestPromise;
+}
 
 // ── Static article fallback ──────────────────────────────────
 const STATIC_ARTICLES = [
@@ -173,7 +72,7 @@ function renderProjects(lang) {
     <a href="project.html?id=${p.id}" class="proj-card reveal" data-id="${p.id}">
       <img src="${cover}" alt="${name}" loading="lazy" onerror="this.src='assets/hero.jpg'">
       <div class="proj-overlay">
-        <p class="proj-cat">${p.num} — ${p.kategorie}</p>
+        <p class="proj-cat">${p.num} — ${p.kategorie || 'Realizace'}</p>
         <p class="proj-name">${name}</p>
         <p class="proj-arrow">${viewTxt}</p>
       </div>
@@ -183,6 +82,38 @@ function renderProjects(lang) {
     setTimeout(() => el.classList.add('visible'), 80 * i);
   });
   window._currentLang = lang;
+}
+
+function renderInspiration(lang) {
+  const grid = document.getElementById('inspirationGrid');
+  if (!grid) return;
+  grid.innerHTML = INSPIRATIONS.map((album, idx) => {
+    const title = album.title || album.folder;
+    const desc = album.description ? album.description.split('\n')[0] : '';
+    const cover = album.photos[0] ? photoPath(album, album.photos[0]) : 'assets/hero.jpg';
+    const viewTxt = lang === 'en' ? 'View inspiration →' : 'Zobrazit inspiraci →';
+    return `
+      <button type="button" class="insp-card reveal" onclick="openInspirationLightbox(${idx})">
+        <img src="${cover}" alt="${title}" loading="lazy" onerror="this.src='assets/hero.jpg'">
+        <div class="insp-overlay">
+          <p class="insp-title">${title}</p>
+          ${desc ? `<p class="insp-desc">${desc}</p>` : ''}
+          <span class="insp-arrow">${viewTxt}</span>
+        </div>
+      </button>`;
+  }).join('');
+  grid.querySelectorAll('.reveal').forEach((el, i) => {
+    setTimeout(() => el.classList.add('visible'), 80 * i);
+  });
+}
+
+window.openInspirationLightbox = function(albumIndex) {
+  const album = INSPIRATIONS[albumIndex];
+  if (!album) return;
+  lbPhotos = album.photos.map(f => photoPath(album, f));
+  lbIdx = 0;
+  updateLightbox();
+  document.getElementById('lightbox').classList.add('open');
 }
 
 // ── Render: Project Modal ─────────────────────────────────────
@@ -321,35 +252,18 @@ window.openArticleModal = function(id) {
   document.body.style.overflow = 'hidden';
 };
 
-// ── Render: Inspiration ──────────────────────────────────────
-function renderInspiration() {
-  const grid = document.getElementById('inspirationGrid');
-  if (!grid) return;
-  // Try to list the inspiration folder photos
-  const photos = INSPIRATION_PHOTOS;
-  grid.innerHTML = photos.map((src, i) => `
-    <div class="ins-item reveal" onclick="openInspirationLightbox(${i})">
-      <img src="${src}" alt="Inspirace ${i+1}" loading="lazy" onerror="this.parentElement.style.display='none'">
-    </div>`).join('');
-}
-
-window.openInspirationLightbox = function(startIdx) {
-  lbPhotos = INSPIRATION_PHOTOS;
-  lbIdx = startIdx;
-  updateLightbox();
-  document.getElementById('lightbox').classList.add('open');
-};
-
 // ── Main render ──────────────────────────────────────────────
-window.renderCMS = function(lang) {
+window.renderCMS = async function(lang) {
   lang = lang || 'cs';
   window._currentLang = lang;
+
+  await loadAssetManifest();
 
   // Projects always from local albums
   renderProjects(lang);
 
   // Inspiration
-  renderInspiration();
+  renderInspiration(lang);
 
   // Articles: try API first, fallback to static
   if (CMS_API_URL && CMS_API_URL !== 'YOUR_APPS_SCRIPT_URL_HERE') {

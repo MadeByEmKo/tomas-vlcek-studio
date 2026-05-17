@@ -87,4 +87,7 @@ function renderProjectDetail(lang) {
   }
 }
 
-window.addEventListener('load', () => renderProjectDetail(localStorage.getItem('tv_lang') || 'cs'));
+window.addEventListener('load', async () => {
+  if (window.loadAssetManifest) await window.loadAssetManifest();
+  renderProjectDetail(localStorage.getItem('tv_lang') || 'cs');
+});
