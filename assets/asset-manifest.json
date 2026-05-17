@@ -1,414 +1,236 @@
-﻿{
-    "projects":  [
-                     {
-                         "id":  1,
-                         "num":  "01",
-                         "folder":  "1. realizace Rekonstrukce kuchyňského interiéru",
-                         "title":  "Rekonstrukce kuchyňského interiéru",
-                         "category":  "rezidenäťnă­",
-                         "design":  "Tomáš Vlček",
-                         "realizace":  "TomĂˇĹˇ VlÄŤek",
-                         "vyroba":  "",
-                         "description":  "PĹ™estÄ›hovĂˇnĂ­ mladĂ©ho pĂˇru do vlastnĂ­ho rodinnĂ©ho domu vedlo k prvnĂ­ zmÄ›nÄ› a to kuchynÄ› z dĹŻvodu potĹ™eby vÄ›tĹˇĂ­ho pracovnĂ­ho mĂ­sta a naprosto nevyhovujĂ­cĂ­ starĹˇĂ­ho kuchyĹskĂ©ho nĂˇbytku. V prvnĂ­ Ĺ™adÄ› jsme vyzkouĹˇeli nÄ›kolik nĂˇvrhĹŻ Ĺ™eĹˇenĂ­ dispozice kuchynÄ› a vĂ˝sledek byl jasnĂ˝. Byly zde takĂ© momenty kterĂ© hrĂˇli roli v elektroinstalaci a kterĂ© se jiĹľ nedaly pĹ™edÄ›lĂˇvat a nebo jejĂ­ pĹ™edÄ›lĂˇvka by byla technicky nĂˇroÄŤnĂˇ a vyĹľadovala by vÄ›tĹˇĂ­ zĂˇsah do statiky domu. VĂ˝bÄ›r materiĂˇlĹŻ pro nĂˇbytek vedl k trendovĂ© kombinaci barev dĹ™evÄ›nĂ˝ dekor / uni barva, ze kterĂ© dĂˇle vychĂˇzely dalĹˇĂ­ Ăşpravy interiĂ©ru domu.",
-                         "photoGroups":  {
-                                             "Původní":  "rekonstrukce-kuchynskeho-interieru-029.jpg",
-                                             "3D":  [
-                                                        "rekonstrukce-kuchynskeho-interieru-027.jpg",
-                                                        "rekonstrukce-kuchynskeho-interieru-028.jpg"
-                                                    ],
-                                             "Realizace":  [
-                                                               "rekonstrukce-kuchynskeho-interieru.jpg",
-                                                               "rekonstrukce-kuchynskeho-interieru-026.jpg",
-                                                               "rekonstrukce-kuchynskeho-interieru-030.jpg",
-                                                               "rekonstrukce-kuchynskeho-interieru-031.jpg",
-                                                               "rekonstrukce-kuchynskeho-interieru-032.jpg",
-                                                               "rekonstrukce-kuchynskeho-interieru-033.jpg",
-                                                               "rekonstrukce-kuchynskeho-interieru-034.jpg",
-                                                               "rekonstrukce-kuchynskeho-interieru-035.jpg",
-                                                               "rekonstrukce-kuchynskeho-interieru-036.jpg",
-                                                               "rekonstrukce-kuchynskeho-interieru-037.jpg",
-                                                               "rekonstrukce-kuchynskeho-interieru-038.jpg",
-                                                               "rekonstrukce-kuchynskeho-interieru-1.jpg",
-                                                               "rekonstrukce-kuchynskeho-interieru-3.jpg"
-                                                           ]
-                                         }
-                     },
-                     {
-                         "id":  2,
-                         "num":  "10",
-                         "folder":  "10. realizace Kuchyň jako srdce",
-                         "title":  "Kuchyň jako srdce",
-                         "category":  "rezidenäťnă­",
-                         "design":  "Tomáš Vlček",
-                         "realizace":  "TomĂˇĹˇ VlÄŤek",
-                         "vyroba":  "",
-                         "description":  "CitlivÄ› provedenĂˇ rekonstrukce kuchyĹskĂ©ho interiĂ©ru respektuje styl celĂ©ho domu a zĂˇroveĹ pĹ™inĂˇĹˇĂ­ modernĂ­ funkÄŤnost i nadÄŤasovou estetiku. Kombinace dveĹ™nĂ­ho profilu nĂˇbytku byla zvolena tak, aby odpovĂ­dala charakteru zbytku interiĂ©ru domu, a tvoĹ™ila tak harmonickĂ˝ a ucelenĂ˝ celek. VĂ˝raznĂ˝m prvkem jsou hornĂ­ prosklenĂˇ dvĂ­Ĺ™ka kuchynÄ›, kterĂˇ interiĂ©ru dodĂˇvajĂ­ lehkost a eleganci. PouĹľitĂ© luxusnĂ­ materiĂˇly â€“ kvalitnĂ­ lak na dvĂ­Ĺ™kĂˇch a odolnĂ˝ umÄ›lĂ˝ kĂˇmen na pracovnĂ­ desce â€“ podtrhujĂ­ prĂ©miovĂ˝ dojem a zaruÄŤujĂ­ dlouhou Ĺľivotnost. Klient, milovnĂ­k vĂ­na, si splnil svĹŻj sen â€“ souÄŤĂˇstĂ­ kuchynÄ› je velkĂˇ vestavnĂˇ vinotĂ©ka, kterĂˇ je nejen praktickĂ˝m prvkem, ale i vĂ˝razem jeho osobnĂ­ho stylu a zĂˇliby. VĂ˝sledkem je kuchyĹ, kterĂˇ spojuje funkci, eleganci a osobitost â€“ prostor, kde se snoubĂ­ kaĹľdodennĂ­ Ĺľivot s vĂ˝jimeÄŤnĂ˝mi momenty.",
-                         "photoGroups":  {
-                                             "Realizace":  [
-                                                               "1_KUCHYNĚ CHMELÍK.jpg",
-                                                               "10_KUCHYNĚ_CHMELÍK.jpg",
-                                                               "2_KUCHYNĚ_CHMELÍK.jpg",
-                                                               "3_KUCHYNĚ_CHMELÍK.jpg",
-                                                               "4_KUCHYNĚ_CHMELÍK.jpg",
-                                                               "5_KUCHYNĚ_CHMELÍK.jpg",
-                                                               "6_KUCHYNĚ_CHMELÍK.jpg",
-                                                               "7_KUCHYNĚ_CHMELÍK.jpg",
-                                                               "8_KUCHYNĚ_CHMELÍK.jpg",
-                                                               "9_KUCHYNĚ_CHMELÍK.jpg"
-                                                           ]
-                                         }
-                     },
-                     {
-                         "id":  3,
-                         "num":  "11",
-                         "folder":  "11. realizace Kuchyň s duší",
-                         "title":  "Kuchyň s duší",
-                         "category":  "rezidenäťnă­",
-                         "design":  "Tomáš Vlček",
-                         "realizace":  "TomĂˇĹˇ VlÄŤek",
-                         "vyroba":  "",
-                         "description":  "SouÄŤĂˇstĂ­ rekonstrukce rodinnĂ© vilky byla i realizace novĂ© kuchynÄ›, kterou jsem mÄ›l moĹľnost zpracovat podle specifickĂ©ho nĂˇvrhu architektonickĂ© kancelĂˇĹ™e OBJECTUM. DĹŻleĹľitĂ˝m aspektem nĂˇvrhu byla kombinace dveĹ™nĂ­ho profilu nĂˇbytku, kterĂˇ koresponduje nejen s charakterem zbytku interiĂ©ru, ale takĂ© s exteriĂ©rem samotnĂ©ho domu. CelkovĂ© Ĺ™eĹˇenĂ­ tak pĹŻsobĂ­ vyvĂˇĹľenÄ› a pĹ™irozenÄ› â€“ nic nenĂ­ samoĂşÄŤelnĂ©, vĹˇe mĂˇ svĂ© mĂ­sto i smysl. Ăškol znÄ›l jasnÄ›: zachovat pĹ™Ă­jemnĂ© domĂˇcĂ­ prostĹ™edĂ­ a zĂˇroveĹ zvĂ˝Ĺˇit komfort kaĹľdodennĂ­ho uĹľĂ­vĂˇnĂ­. VĂ˝sledkem je kuchynÄ›, kterĂˇ respektuje styl domu, a pĹ™itom nabĂ­zĂ­ modernĂ­ funkÄŤnost a nadÄŤasovou estetiku.",
-                         "photoGroups":  {
-                                             "Realizace":  [
-                                                               "1_šafr.jpg",
-                                                               "2_šafr.jpg",
-                                                               "3_šafr.jpg",
-                                                               "4_šafr.jpg",
-                                                               "5_šafr.jpg",
-                                                               "6_šafr.jpg",
-                                                               "7_šafr.jpg",
-                                                               "8_šafr.jpg",
-                                                               "9_šafr.jpg"
-                                                           ]
-                                         }
-                     },
-                     {
-                         "id":  4,
-                         "num":  "12",
-                         "folder":  "12. realizace Studentsky pokoj",
-                         "title":  "Studentsky pokoj",
-                         "category":  "rezidenäťnă­",
-                         "design":  "Tomáš Vlček",
-                         "realizace":  "TomĂˇĹˇ VlÄŤek",
-                         "vyroba":  "",
-                         "description":  "PĹ™edmÄ›tem tĂ©to realizace byla rekonstrukce studentskĂ©ho pokoje, kterĂ˝ se nachĂˇzĂ­ v podkrovĂ­ rodinnĂ©ho domu. CĂ­lem bylo vytvoĹ™it svÄ›tlĂ˝ a vzduĹˇnĂ˝ interiĂ©r, kterĂ˝ bude odpovĂ­dat potĹ™ebĂˇm mladĂ©ho uĹľivatele â€“ jak po strĂˇnce praktiÄŤnosti, tak estetiky. ZĂˇsadnĂ­ bylo zachovĂˇnĂ­ dostateÄŤnĂ©ho ĂşloĹľnĂ©ho prostoru, umĂ­stÄ›nĂ­ plnohodnotnĂ©ho pracovnĂ­ho mĂ­sta a zĂˇroveĹ zaÄŤlenÄ›nĂ­ kosmetickĂ©ho koutku, kterĂ˝ elegantnÄ› navazuje na ostatnĂ­ vybavenĂ­ pokoje. Do dispozice byla ĂşspÄ›ĹˇnÄ› zaÄŤlenÄ›na samostatnĂˇ vÄ›tĹˇĂ­ postel pro maximĂˇlnĂ­ pohodlĂ­ a takĂ© velkĂˇ televize, kterĂˇ doplĹuje multifunkÄŤnĂ­ charakter prostoru. VĂ˝sledkem je harmonickĂ˝ interiĂ©r, kde mĂˇ kaĹľdĂ˝ detail svĂ© mĂ­sto â€“ ideĂˇlnĂ­ zĂˇzemĂ­ pro studium, odpoÄŤinek i kaĹľdodennĂ­ rituĂˇly.",
-                         "photoGroups":  {
-                                             "Realizace":  [
-                                                               "1_POKOJ.jpg",
-                                                               "2_POKOJ.jpg",
-                                                               "3_POKOJ.jpg",
-                                                               "4_POKOJ.jpg",
-                                                               "5_POKOJ.jpg",
-                                                               "6_POKOJ.jpg",
-                                                               "7_POKOJ.jpg",
-                                                               "8_POKOJ.jpg"
-                                                           ]
-                                         }
-                     },
-                     {
-                         "id":  5,
-                         "num":  "13",
-                         "folder":  "13. realizace Domu pro mladou rodinu",
-                         "title":  "Domu pro mladou rodinu",
-                         "category":  "rezidenäťnă­",
-                         "design":  "Tomáš Vlček",
-                         "realizace":  "TomĂˇĹˇ VlÄŤek",
-                         "vyroba":  "",
-                         "description":  "VytvoĹ™it interiĂ©r, kterĂ˝ spojuje ĹˇpiÄŤkovĂ˝ modernĂ­ design, funkÄŤnost a hĹ™ejivou atmosfĂ©ru domova â€“ to byla hlavnĂ­ vĂ˝zva tĂ©to komplexnĂ­ realizace. Pro mladou rodinu jsme navrhli prostor plnĂ˝ prĂ©miovĂ˝ch pĹ™Ă­rodnĂ­ch materiĂˇlĹŻ, nadÄŤasovĂ˝ch tĂłnĹŻ a promyĹˇlenĂ˝ch detailĹŻ. ZĂˇdveĹ™Ă­ a interiĂ©r v tĂłnu dubu VstupnĂ­ prostor definuje elegantnĂ­ obklad s plnÄ› integrovanĂ˝mi dveĹ™mi v provedenĂ­ dub rustikal hnÄ›dĂ˝ a praktickĂˇ odklĂˇdacĂ­ lavice (kombinace dub pĹ™Ă­rodnĂ­). TĂ­mto prostorem se propisuje jednotnĂ˝ koncept domu â€“ celĂ˝m interiĂ©rem vĂˇs provĂˇzejĂ­ dĂ˝hovanĂ© otevĂ­ravĂ© i posuvnĂ© dveĹ™e Ĺ™ady SPACE v provedenĂ­ dub rustikal hnÄ›dĂ˝. SpoleÄŤenskĂˇ zĂłna: Srdce domova HlavnĂ­ obytnĂ˝ prostor pĹ™irozenÄ› propojuje kuchyni s jĂ­delnou a obĂ˝vacĂ­m pokojem. KuchynÄ› ELITE: V prĂ©miovĂ©m provedenĂ­ lak lesk premium magnolie. LuxusnĂ­ vzhled i odolnost dodĂˇvĂˇ pracovnĂ­ deska z keramiky (KĂˇmen Decor) se subtilnĂ­m detailem a spodnĂ­m osazenĂ­m dĹ™ezu. JĂ­delnĂ­ kout: Dominantou je masivnĂ­ stĹŻl a Ĺľidle TON (dub pĹ™Ă­rodnĂ­). ObĂ˝vacĂ­ pokoj: PrĹŻchodovĂ˝ portĂˇl, knihovnu a obĂ˝vacĂ­ stÄ›nu halĂ­ dub rustikal hnÄ›dĂ˝. AtmosfĂ©ru dotvĂˇĹ™Ă­ krb s minimalistickou betonovou stÄ›rkou, luxusnĂ­ sedaÄŤka s pravĂ˝m peĹ™Ă­m EDEL a TV panel s integrovanĂ˝m stmĂ­vatelnĂ˝m LED osvÄ›tlenĂ­m. OsvÄ›tlenĂ­: CelĂ˝ prostor zalĂ©vajĂ­ svÄ›tlem designovĂˇ svĂ­tidla RENDL Light. ArchitektonickĂ© schodiĹˇtÄ› Ĺ perkem domu je samonosnĂ© kovovĂ© schodiĹˇtÄ› v odstĂ­nu antracit, kterĂ© v kombinaci se sklenÄ›nĂ˝m zĂˇbradlĂ­m pĹŻsobĂ­ vzduĹˇnÄ›. Kontrast dodĂˇvajĂ­ masivnĂ­ stupnÄ› z dubu moĹ™enĂ©ho do tmavÄ› hnÄ›dĂ©. SoukromĂˇ zĂłna a zĂˇzemĂ­ LoĹľnice: NavrĹľena v ÄŤistĂ˝ch liniĂ­ch s pohodlnou postelĂ­ ELISE a komodou s toaletnĂ­m odkladem v bĂ­lĂ©m lesklĂ©m laku. Navazuje na ni Ĺˇatna z lamina v dekoru dub pĹ™Ă­rodnĂ­. Koupelna: KoupelnovĂ˝ nĂˇbytek s vĂ˝raznou kresbou dĂ˝hy palisander dodĂˇvĂˇ mĂ­stnosti rĂˇz luxusnĂ­ho wellness. Pracovna (nefotografovĂˇno): FunkÄŤnĂ­ zĂˇzemĂ­ kombinuje lamino antracit s elegantnĂ­m dubem nagano. VĂ˝sledek: Kombinace prĂ©miovĂ˝ch lakĹŻ, surovĂ© keramiky, betonu a hĹ™ejivĂ©ho dubu vytvoĹ™ila modernĂ­ a reprezentativnĂ­ domov, kterĂ˝ bude mladĂ© rodinÄ› spolehlivÄ› slouĹľit po dlouhĂˇ lĂ©ta.",
-                         "photoGroups":  {
-                                             "Realizace":  [
-                                                               "neuvadet.jpg",
-                                                               "neuvadet1.jpg",
-                                                               "stolek TON a svítido Floss.jpg",
-                                                               "TMA9526.jpg",
-                                                               "TMA9548_1.jpg",
-                                                               "TMA9582.jpg",
-                                                               "TMA9609 kopie.jpg",
-                                                               "TMA9616.jpg",
-                                                               "TMA9631.jpg",
-                                                               "TMA9656.jpg",
-                                                               "TMA9665.jpg",
-                                                               "TMA9708.jpg",
-                                                               "TMA9714.jpg",
-                                                               "TMA9726.jpg",
-                                                               "TMA9754.jpg",
-                                                               "TMA9784.jpg",
-                                                               "TMA9814 kopie.jpg",
-                                                               "TMA9823.jpg",
-                                                               "TMA9838.jpg",
-                                                               "TMA9844 2.jpg",
-                                                               "TMA9877.jpg",
-                                                               "TMA9894.jpg"
-                                                           ]
-                                         }
-                     },
-                     {
-                         "id":  6,
-                         "num":  "14",
-                         "folder":  "14. realizace Bytový dům",
-                         "title":  "Bytový dům",
-                         "category":  "komeräťnă­",
-                         "design":  "Tomáš Vlček",
-                         "realizace":  "TomĂˇĹˇ VlÄŤek",
-                         "vyroba":  "",
-                         "description":  "PoĹľadavkem klienta byla zmÄ›na pĹŻvodnĂ­ch dispozic navrhovanĂ©ho domu a vytvoĹ™enĂ­ rĹŻznĂ˝ch dispoziÄŤnĂ­ch Ĺ™eĹˇenĂ­ jednotlivĂ˝ch bytĹŻ pro bytovĂ˝ dĹŻm,, kterĂˇ lĂ©pe reagujĂ­ na potĹ™eby budoucĂ­ch uĹľivatelĹŻ. SouÄŤĂˇstĂ­ zadĂˇnĂ­ bylo takĂ© navrhnout design interiĂ©ru spoleÄŤnĂ˝ch prostor v jednotnĂ©m, modernĂ­m duchu a vytvoĹ™it pĹ™Ă­jemnĂ© prostĹ™edĂ­ podporujĂ­cĂ­ komunitnĂ­ charakter domu. VĹˇechny interiĂ©ry spoleÄŤnĂ˝ch prostor a bytĹŻ jsem navrhl s dĹŻrazem na udrĹľitelnost, kvalitnĂ­ materiĂˇly a vyĹˇĹˇĂ­ pĹ™idanou hodnotu, kterĂˇ zajiĹˇĹĄuje dlouhodobou estetickou i funkÄŤnĂ­ kvalitu. DĹŻleĹľitou ÄŤĂˇstĂ­ projektu bylo rovnÄ›Ĺľ architektonickĂ© Ĺ™eĹˇenĂ­ exteriĂ©ru â€“ modernĂ­ vizuĂˇl domu, kterĂ˝ navazuje na souÄŤasnĂ© mÄ›stskĂ© prostĹ™edĂ­, a nĂˇvrh parkovĂˇnĂ­ a ĂşrovĹovĂ©ho uspoĹ™ĂˇdĂˇnĂ­ pĹ™Ă­stupovĂ˝ch ploch, kterĂ© doplĹujĂ­ celkovou koncepci pohodlnĂ©ho a efektivnĂ­ho bydlenĂ­. NĂˇjemnĂ­ byty PoĹľadavkem klienta bylo dodrĹľenĂ­ vysokĂ©ho standardu vybavenĂ­ a zĂˇroveĹ vytvoĹ™enĂ­ interiĂ©rĹŻ, kterĂ© obstojĂ­ i pĹ™i dlouhodobĂ©m uĹľĂ­vĂˇnĂ­ v rĂˇmci nĂˇjemnĂ­ho bydlenĂ­. CĂ­lem nĂˇvrhu bylo navrhnout design interiĂ©rĹŻ bytĹŻ, kterĂ˝ pĹŻsobĂ­ atraktivnÄ›, ergonomicky a funkÄŤnÄ›. PouĹľitĂ© materiĂˇly byly zvoleny s ohledem na jejich trvanlivost, odolnost a snadnou ĂşdrĹľbu, aby dlouhodobÄ› splĹovaly nĂˇroky intenzivnĂ­ho provozu. BarevnĂ© Ĺ™eĹˇenĂ­ interiĂ©rĹŻ je zĂˇmÄ›rnÄ› neutrĂˇlnĂ­, coĹľ umoĹľĹuje budoucĂ­m nĂˇjemnĂ­kĹŻm snadno kombinovat vlastnĂ­ vybavenĂ­ a dotvoĹ™it si byt podle osobnĂ­ho stylu. VĂ˝sledkem je modernĂ­ a nadÄŤasovĂ© prostĹ™edĂ­ â€¦â€¦ uĹľ se jenom nastÄ›hovat.",
-                         "photoGroups":  {
-                                             "Realizace":  [
-                                                               "DUM_1.jpg",
-                                                               "DUM_10.jpg",
-                                                               "DUM_11.jpg",
-                                                               "DUM_12.jpg",
-                                                               "DUM_13.jpg",
-                                                               "DUM_14-scaled.jpg",
-                                                               "DUM_15-scaled.jpg",
-                                                               "DUM_2.jpg",
-                                                               "DUM_3.jpg",
-                                                               "DUM_4-scaled.jpg",
-                                                               "DUM_5.jpg",
-                                                               "DUM_6.jpg",
-                                                               "DUM_7.jpg",
-                                                               "DUM_8.jpg",
-                                                               "DUM_9.jpg"
-                                                           ]
-                                         }
-                     },
-                     {
-                         "id":  7,
-                         "num":  "02",
-                         "folder":  "2. realizace Bílá nebo Bílá",
-                         "title":  "Bílá nebo Bílá",
-                         "category":  "rezidenäťnă­",
-                         "design":  "Tomáš Vlček",
-                         "realizace":  "TomĂˇĹˇ VlÄŤek",
-                         "vyroba":  "",
-                         "description":  "PrĂˇce s klientem , kterĂ˝ vĂ­ co od svĂ©ho bydlenĂ­ chce je vlastnÄ› na jednu stranu jednoduchĂ˝ a zĂˇroveĹ nejsloĹľitÄ›jĹˇĂ­ Ăşkol. ,, Chci bĂ­lĂ˝ interiĂ©r ,, jak jednoduchĂ© zadĂˇnĂ­ a pĹ™itom skloubit bĂ­lou barvu  materiĂˇlĹŻ na vĹˇech povrĹˇĂ­ch a dekorech , tak aby zĂˇroveĹ byly stejnÄ› bĂ­lĂ© navÄ›ky i v rĂˇmci jejich ĂşdrĹľby , to si myslĂ­m , Ĺľe je celkem tÄ›ĹľkĂ˝ Ăşkolâ€¦. PĹ™inejmenĹˇĂ­m aspoĹ stĂˇrnutĂ­ materiĂˇlĹŻ aby probĂ­halo ÄŤasovÄ› plynule stejnÄ› je celkem zajĂ­mavĂ©. FinĂˇlnĂ­ povrch podlahy a schodiĹˇtÄ› byl zvolen BETONEPOX se zabarvenĂ­m do ĹˇedobĂ­la , z dĹŻvodu nedoporuÄŤenĂ­ dodavatele pro ÄŤistÄ› bĂ­lou , kterĂˇ ÄŤistÄ› bĂ­lou dlouho nezĹŻstane. OstatnĂ­ prvky ve spoleÄŤnĂ©m  interiĂ©ru jsou zvoleny ÄŤistÄ› bĂ­lĂ˝m lakem. TakĂ© pracovnĂ­ kuchyĹskĂˇ deska vÄŤ. stolovĂ© desky je bĂ­lĂˇ z materiĂˇlu DEKTON. TĹ™eĹˇniÄŤkou realizace bylo nĂˇdhernĂ© akvĂˇrium postavenĂ© na zakĂˇzku na pĹ™ĂˇnĂ­ klienta vÄŤetnÄ› jeho vnitĹ™nĂ­ho vybavenĂ­. TakĂ© vnitĹ™nĂ­ vzhled akvĂˇria se modeluje na zakĂˇzku a pĹ™edbĂ­hĂˇ tomu nÄ›kolik osobnĂ­ch konzultacĂ­ se staviteli akvĂˇria. PĹ™Ă­stavbou mĂ­stnostĂ­ obĂ˝vacĂ­ ÄŤĂˇsti a novĂ© loĹľnice s koupelnou a Ĺˇatnou doĹˇlo ke zvĂ˝ĹˇenĂ­ komfortu bydlenĂ­ v domÄ› a taktĂ©Ĺľ jeho realitnĂ­ hodnoty.",
-                         "photoGroups":  {
-                                             "Realizace":  [
-                                                               "1_SR.jpg",
-                                                               "10_SR.jpg",
-                                                               "11_SR.jpg",
-                                                               "12_SR.jpg",
-                                                               "13_SR.jpg",
-                                                               "14_SR.jpg",
-                                                               "15_SR.jpg",
-                                                               "2_SR.jpg",
-                                                               "3_SR.jpg",
-                                                               "4_SR.jpg",
-                                                               "5_SR.jpg",
-                                                               "6_SR.jpg",
-                                                               "7_SR.jpg",
-                                                               "8_SR.jpg",
-                                                               "9_SR.jpg"
-                                                           ]
-                                         }
-                     },
-                     {
-                         "id":  8,
-                         "num":  "03",
-                         "folder":  "3. realizace Černobilá realizace",
-                         "title":  "Černobilá realizace",
-                         "category":  "rezidenäťnă­",
-                         "design":  "Tomáš Vlček",
-                         "realizace":  "TomĂˇĹˇ VlÄŤek",
-                         "vyroba":  "",
-                         "description":  "Projekt vybavenĂ­ novĂ©ho bytu ve vĂ˝ĹˇkovĂ©m domÄ›. ZadĂˇnĂ­ bylo vytvoĹ™it bĂ­lo-ÄŤernou kreativitu ne bÄ›ĹľnĂ©ho designu. VybavenĂ­m kuchynÄ› se tedy staly barvy ÄŤerno bĂ­lĂ˝ vysokĂ˝ lesk, kterĂ© prochĂˇzĂ­ kompletnÄ› celĂ˝m bytem. Na kuchyĹskou pracovnĂ­ desku byla pouĹľita pĹ™Ă­rodnĂ­ Ĺľula zajĂ­mavĂ©ho designu , ze kterĂ© byl udÄ›lĂˇn i obal krbu na biolĂ­h. NavrĹľeny a realizovĂˇny byly tyto mĂ­stnosti : zĂˇdveĹ™Ă­ / prĂˇdelna / kuchynÄ› / obĂ˝vacĂ­ mĂ­stnost / loĹľnice / Ĺˇatna / pokoj pro hosty. CelkovĂ© pojetĂ­ bytu bylo plĂˇnovanĂ© nadÄŤasovÄ› a do dneĹˇnĂ­ doby stĂˇle splĹuje potĹ™eby klienta.",
-                         "photoGroups":  {
-                                             "Realizace":  [
-                                                               "1_MB.jpg",
-                                                               "10_MB.jpg",
-                                                               "11_MB.jpg",
-                                                               "12_MB.jpg",
-                                                               "13_MB.jpg",
-                                                               "2_MB.jpg",
-                                                               "3_MB.jpg",
-                                                               "4_MB.jpg",
-                                                               "5_MB.jpg",
-                                                               "6_MB.jpg",
-                                                               "7_MB.jpg",
-                                                               "8_MB.jpg",
-                                                               "9_MB.jpg"
-                                                           ]
-                                         }
-                     },
-                     {
-                         "id":  9,
-                         "num":  "04",
-                         "folder":  "4. realizace V klidu",
-                         "title":  "V klidu",
-                         "category":  "rezidenäťnă­",
-                         "design":  "Tomáš Vlček",
-                         "realizace":  "TomĂˇĹˇ VlÄŤek",
-                         "vyroba":  "",
-                         "description":  "Majitel domu jiĹľ mĂˇ nÄ›co odĹľito â€“ a prĂˇvÄ› dĂ­ky tomu pĹ™esnÄ› vĂ­, co oÄŤekĂˇvĂˇ od svĂ©ho domova. V rozsĂˇhlĂ©m projektu vybavenĂ­ tĂ©to rodinnĂ© rezidence se odrĂˇĹľĂ­ nejen jeho ĹľivotnĂ­ zkuĹˇenosti, ale i touha po harmonii, pohodlĂ­ a estetickĂ© vyvĂˇĹľenosti. InteriĂ©r domu je promyĹˇlenĂ˝ do nejmenĹˇĂ­ho detailu. Kladen byl dĹŻraz na kvalitnĂ­ materiĂˇly i preciznĂ­ zpracovĂˇnĂ­. DominantnĂ­m prvkem je dotek pĹ™Ă­rodnĂ­ch dĹ™evin na nĂˇbytku a obkladech, kterĂ˝ v kombinaci se zemitĂ˝mi tĂłny uni barev v ultramatu vytvĂˇĹ™Ă­ hĹ™ejivou a nadÄŤasovou atmosfĂ©ru. VĂ˝sledkem je pĹ™Ă­jemnĂ© prostĹ™edĂ­ interiĂ©ru, kterĂ© vybĂ­zĂ­ ke sdĂ­lenĂ­ rodinnĂ© pohody a poskytuje ideĂˇlnĂ­ zĂˇzemĂ­ pro kaĹľdodennĂ­ Ĺľivot plnĂ˝ klidu, estetiky a komfortu.",
-                         "photoGroups":  {
-                                             "Realizace":  [
-                                                               "1_KUCHYNĚ BRNO.png",
-                                                               "10_JÍDELNÍ STŮL DETAIL.png",
-                                                               "11_HOSTOVSKÝ POKOJ BRNO.png",
-                                                               "12_HOSTOVSKÝ POKOJ DETAIL.png",
-                                                               "13_KOUPELNA HOST_POKOJ.png",
-                                                               "14_ZÁDVEŘÍ_BRNO.png",
-                                                               "15_ZÁDVEŘÍ DETAIL.png",
-                                                               "16_KNIHOVNA BRNO.png",
-                                                               "17_KNIHOVNA KŘESLO.png",
-                                                               "18_KNIHOVNA DETAIL.png",
-                                                               "19_KOUPELNA MASTER BRNO.png",
-                                                               "2_KUCHYNĚ BRNO.png",
-                                                               "20_KOUPELNA MASTER DETAIL BRNO.png",
-                                                               "21_KLUB BRNO.png",
-                                                               "22_KLUB BRNO DETAIL.png",
-                                                               "23_KLUB BRNO DETAIL 1.png",
-                                                               "24_KLUB BRNO DETAIL 2.png",
-                                                               "25_GARÁŽ_BRNO.jpg",
-                                                               "26_GARÁŽ BRNO.jpg",
-                                                               "3_KUCHYNĚ BRNO.png",
-                                                               "4_KUCHYNĚ DETAIL DESKA.png",
-                                                               "5_KUCHYNĚ DETAIL SKŘÍNĚ.png",
-                                                               "6_KUCHYNĚ DETAIL.png",
-                                                               "7_KUCHYNĚ DETAIL SPOTŘEBIČE DO ROVINY.png",
-                                                               "8_KUCHYNĚ DETAIL DESKA.png",
-                                                               "9_JÍDELNÍ STŮL.png"
-                                                           ]
-                                         }
-                     },
-                     {
-                         "id":  10,
-                         "num":  "05",
-                         "folder":  "5. realizace Rek staršího domu",
-                         "title":  "Rek staršího domu",
-                         "category":  "rezidenäťnă­",
-                         "design":  "Tomáš Vlček",
-                         "realizace":  "TomĂˇĹˇ VlÄŤek",
-                         "vyroba":  "",
-                         "description":  "Rekonstrukce starĹˇĂ­ho domu si ĹľĂˇdala citlivĂ˝ pĹ™Ă­stup â€“ s respektem k pĹŻvodnĂ­mu charakteru stavby, ale i s jasnou vizĂ­ modernĂ­ho a hlavnÄ› funkÄŤnĂ­ho domova. Zvolili jsme cestu jednoduchĂ© elegance za pouĹľitĂ­ kvalitnĂ­ch materiĂˇlĹŻ, kterĂ© dĂˇvajĂ­ vyniknout pĹ™irozenĂ© krĂˇse prostoru. SvÄ›tlĂ© materiĂˇly v kombinaci s preciznĂ­m Ĺ™emeslnĂ˝m zpracovĂˇnĂ­m podtrhujĂ­ klidnou a vzduĹˇnou atmosfĂ©ru celĂ©ho interiĂ©ru. Od samĂ©ho zaÄŤĂˇtku byl kladen dĹŻraz na detail materiĂˇlĹŻ â€“ jejich strukturu, povrch i barevnĂ© ladÄ›nĂ­. DobudovĂˇnĂ­ interiĂ©ru obĂ˝vacĂ­ ÄŤĂˇsti probĂ­halo aĹľ po zaĹľitĂ­ hlavnĂ­ho prostoru, dĂ­ky ÄŤemuĹľ vzniklo Ĺ™eĹˇenĂ­ dokonale reagujĂ­cĂ­ na kaĹľdodennĂ­ potĹ™eby a rytmus Ĺľivota majitelĹŻ.",
-                         "photoGroups":  {
-                                             "Realizace":  [
-                                                               "1_BŘEVNOV.jpg",
-                                                               "2_BŘEVNOV.jpg",
-                                                               "3_BŘEVNOV.jpg",
-                                                               "4_BŘEVNOV.jpg",
-                                                               "5_BŘEVNOV.jpg"
-                                                           ]
-                                         }
-                     },
-                     {
-                         "id":  11,
-                         "num":  "06",
-                         "folder":  "6. realizace Malý byt s velkým efektem",
-                         "title":  "Malý byt s velkým efektem",
-                         "category":  "rezidenäťnă­",
-                         "design":  "Tomáš Vlček",
-                         "realizace":  "TomĂˇĹˇ VlÄŤek",
-                         "vyroba":  "",
-                         "description":  "KompletnĂ­ rekonstrukce starĹˇĂ­ho bytu 2+kk pĹ™inesla svÄ›ĹľĂ­ a luxusnĂ­ promÄ›nu, kterĂˇ reflektuje osobitĂ˝ vkus mladĂ˝ch klientĹŻ. InteriĂ©r je ladÄ›n do modernĂ­ho stylu s dĹŻrazem na kvalitu a sofistikovanost. DominantnĂ­ roli hrajĂ­ luxusnĂ­ materiĂˇly v lesklĂ©m lakovanĂ©m povrchu, kterĂ© v kombinaci s exotickou dĂ˝hou dodĂˇvajĂ­ prostoru vĂ˝jimeÄŤnĂ˝ charakter. SouÄŤĂˇstĂ­ realizace bylo dodĂˇnĂ­ kompletnĂ­ho vybavenĂ­ interiĂ©ru, od promyĹˇlenĂ© jednoduchĂ© TV sestavy, pĹ™es ĂştulnĂ˝ koutek v zĂˇdveĹ™Ă­ se sezenĂ­m, aĹľ po loĹľnici s originĂˇlnĂ­m dĂ­lem na stÄ›nÄ›, kterĂ© tvoĹ™Ă­ vĂ˝raznĂ˝ umÄ›leckĂ˝ prvek celĂ©ho bytu. VĂ˝sledkem je elegantnĂ­ a funkÄŤnĂ­ domov, kterĂ˝ zcela odpovĂ­dĂˇ potĹ™ebĂˇm i ĹľivotnĂ­mu stylu spokojenĂ˝ch mladĂ˝ch klientĹŻ.",
-                         "photoGroups":  {
-                                             "Realizace":  [
-                                                               "1_BRNO BYT.jpg",
-                                                               "10_BRNO BYT.jpg",
-                                                               "2_BRNO BYT.jpg",
-                                                               "3_BRNO BYT.jpg",
-                                                               "4_BRNO BYT.jpg",
-                                                               "5_BRNO BYT.jpg",
-                                                               "6_BRNO BYT.jpg",
-                                                               "7_BRNO BYT.jpg",
-                                                               "8_BRNO BYT.jpg",
-                                                               "9_BRNO BYT.jpg"
-                                                           ]
-                                         }
-                     },
-                     {
-                         "id":  12,
-                         "num":  "07",
-                         "folder":  "7. realizace Nájem",
-                         "title":  "Nájem",
-                         "category":  "rezidenäťnă­",
-                         "design":  "Tomáš Vlček",
-                         "realizace":  "TomĂˇĹˇ VlÄŤek",
-                         "vyroba":  "",
-                         "description":  "InteriĂ©r proĹˇel kompletnĂ­ rekonstrukcĂ­ panelovĂ©ho bytu 2+kk se zĂˇmÄ›rem vytvoĹ™it funkÄŤnĂ­, modernĂ­ a odolnĂ© prostĹ™edĂ­ vhodnĂ© pro dlouhodobĂ˝ pronĂˇjem. SouÄŤĂˇstĂ­ rekonstrukce byly novĂ© elektrorozvody, kompletnÄ› novĂˇ koupelna vÄŤetnÄ› WC, novĂ© interiĂ©rovĂ© dveĹ™e, stejnÄ› jako novĂ© osvÄ›tlenĂ­ celĂ©ho interiĂ©ru. VelkĂ˝ dĹŻraz byl kladen na vĂ˝bÄ›r funkÄŤnĂ­ch a odolnĂ˝ch materiĂˇlĹŻ nĂˇbytku, kterĂ© zvlĂˇdnou nĂˇroky a frekvenci uĹľĂ­vĂˇnĂ­ spojenou s nĂˇjemnĂ­m bydlenĂ­m. NechybĂ­ ani novĂˇ kuchynÄ› s praktickĂ˝m uspoĹ™ĂˇdĂˇnĂ­m a zĂˇkladnĂ­ vybavenĂ­ interiĂ©ru, kterĂ© zajiĹˇĹĄuje plnou pĹ™ipravenost bytu pro novĂ© nĂˇjemnĂ­ky. CelĂ˝ prostor je navrĹľen tak, aby pĹŻsobil ÄŤistÄ›, modernÄ› a byl snadno udrĹľovatelnĂ˝, coĹľ z nÄ›j ÄŤinĂ­ ideĂˇlnĂ­ volbu pro efektivnĂ­ pronĂˇjem.",
-                         "photoGroups":  {
-                                             "Realizace":  [
-                                                               "1_RUZYNĚ.jpg",
-                                                               "10_RUZYNĚ.jpg",
-                                                               "11_RUZYNĚ.jpg",
-                                                               "12_RUZYNĚ.jpg",
-                                                               "13_RUZYNĚ.jpg",
-                                                               "14_RUZYNĚ.jpg",
-                                                               "15_RUZYNĚ.jpg",
-                                                               "16_RUZYNĚ.jpg",
-                                                               "17_RUZYNĚ.jpg",
-                                                               "18_RUZYNĚ.jpg",
-                                                               "2_RUZYNĚ.jpg",
-                                                               "3_RUZYNĚ.jpg",
-                                                               "4_RUZYNĚ.jpg",
-                                                               "5_RUZYNĚ.jpg",
-                                                               "6_RUZYNĚ.jpg",
-                                                               "7_RUZYNĚ.jpg",
-                                                               "8_RUZYNĚ.jpg",
-                                                               "9_RUZYNĚ.jpg"
-                                                           ]
-                                         }
-                     },
-                     {
-                         "id":  13,
-                         "num":  "08",
-                         "folder":  "8. realizace Výstava 2008 Miele",
-                         "title":  "Výstava 2008 Miele",
-                         "category":  "komeräťnă­",
-                         "design":  "Tomáš Vlček",
-                         "realizace":  "TomĂˇĹˇ VlÄŤek",
-                         "vyroba":  "",
-                         "description":  "V roce 2008 probÄ›hlo uvedenĂ­ na trh novĂ˝ch modelĹŻ spotĹ™ebiÄŤĹŻ MIELE, kterĂ© se staly stĹ™edobodem exkluzivnĂ­ prezentace ve vĂ˝stavnĂ­ch prostorĂˇch MĂNES â€“ PRAHA. Pro tuto pĹ™Ă­leĹľitost byl navrĹľen a realizovĂˇn prezentaÄŤnĂ­ nĂˇbytek odpovĂ­dajĂ­cĂ­ ĹˇpiÄŤkovĂ©mu standardu spotĹ™ebiÄŤĹŻ MIELE. NĂˇbytek byl ve vysokĂ©m lesku, kterĂ˝ podtrhl prĂ©miovĂ˝ charakter znaÄŤky. SpotĹ™ebiÄŤe a nĂˇbytek byly sladÄ›ny v jednotnĂ©m duchu designu a kvality, ÄŤĂ­mĹľ vznikl harmonickĂ˝ celek, kterĂ˝ pĹŻsobil profesionĂˇlnÄ›, elegantnÄ› a zĂˇroveĹ velmi funkÄŤnÄ›. Tato instalace se stala inspirativnĂ­ ukĂˇzkou propojenĂ­ ĹˇpiÄŤkovĂ© technologie s preciznÄ› zpracovanĂ˝m nĂˇbytkem â€“ dĹŻkazem, Ĺľe funkÄŤnost a estetika mohou jĂ­t ruku v ruce.",
-                         "photoGroups":  {
-                                             "Realizace":  [
-                                                               "P9290018[W].jpg",
-                                                               "P9290019[W].jpg",
-                                                               "P9290021[W].jpg",
-                                                               "P9290024[W].jpg"
-                                                           ]
-                                         }
-                     },
-                     {
-                         "id":  14,
-                         "num":  "09",
-                         "folder":  "9. realizace Dětský pokoj",
-                         "title":  "Dětský pokoj",
-                         "category":  "rezidenäťnă­",
-                         "design":  "Tomáš Vlček",
-                         "realizace":  "TomĂˇĹˇ VlÄŤek",
-                         "vyroba":  "",
-                         "description":  "Klienti chtÄ›li pro svĂ© dÄ›ti novĂ˝ pokoj s vysnÄ›nĂ˝mi hrdiny, kterĂ˝ bude nejen hravĂ˝ a inspirativnĂ­, ale pĹ™edevĹˇĂ­m praktickĂ˝ a pĹ™izpĹŻsobenĂ˝ kaĹľdodennĂ­m potĹ™ebĂˇm. PĹ™ede mnou stĂˇl sloĹľitÄ›jĹˇĂ­ Ăşkol â€“ do malĂ©ho prostoru umĂ­stit dvÄ› plnohodnotnĂ© postele, a zĂˇroveĹ vytvoĹ™it dostatek mĂ­sta na hranĂ­, uÄŤenĂ­ i odpoÄŤinek. Navrhl jsem novĂ˝ funkÄŤnĂ­ nĂˇbytek z odolnĂ˝ch materiĂˇlĹŻ, kterĂ˝ odolĂˇ dÄ›tskĂ©mu provozu i ÄŤasu. V pokoji je dost ĂşloĹľnĂ©ho prostoru pro obleÄŤenĂ­, knihy i nepĹ™ebernĂ© mnoĹľstvĂ­ hraÄŤek, kterĂ© k dÄ›tskĂ©mu svÄ›tu neodmyslitelnÄ› patĹ™Ă­. VĂ˝sledkem je ĂştulnĂ˝, barevnĂ˝ a pĹ™ehlednÄ› uspoĹ™ĂˇdanĂ˝ pokoj, kterĂ˝ dÄ›tem nabĂ­zĂ­ nejen komfort, ale i prostor pro fantazii a jejich vlastnĂ­ malĂ© dobrodruĹľstvĂ­.",
-                         "photoGroups":  {
-                                             "Realizace":  [
-                                                               "1_DĚT_POKOKJ.jpg",
-                                                               "11-edit.jpg",
-                                                               "12-edit.jpg",
-                                                               "14-edit.jpg",
-                                                               "17-edit.jpg",
-                                                               "1-edit.jpg",
-                                                               "2-edit.jpg",
-                                                               "4-edit.jpg",
-                                                               "6-edit.jpg",
-                                                               "7-edit.jpg",
-                                                               "8-edit.jpg"
-                                                           ]
-                                         }
-                     }
-                 ],
-    "inspirations":  {
-                         "folder":  "Inspirace Dům 6",
-                         "photos":  [
-                                        "01_12.jpg",
-                                        "02_12.jpg",
-                                        "03_12.jpg",
-                                        "04_12.jpg",
-                                        "05_12.jpg",
-                                        "06_12.jpg",
-                                        "07_12.jpg",
-                                        "08_12.jpg",
-                                        "09_12.jpg",
-                                        "10_12.jpg",
-                                        "projekt_1.jpg"
-                                    ]
-                     }
+{
+  "projects": [
+    {
+      "id": 1,
+      "num": "01",
+      "folder": "1. realizace Rekonstrukce kuchyňského interiéru",
+      "title": "Rekonstrukce kuchyňského interiéru",
+      "title_en": "Kitchen Interior Renovation",
+      "category": "rezidenční",
+      "design": "Tomáš Vlček",
+      "realizace": "Tomáš Vlček",
+      "vyroba": "INFINI a.s.",
+      "stavebni": "Rozvody vody, elektřiny, VZT, SDK stropní konstrukce, Osazení svítidel, Povrchy stěn",
+      "description": "Přestěhování mladého páru do vlastního rodinného domu vedlo k první změně — kuchyni. Bylo potřeba větší pracovní místo a zcela nevyhovující starý kuchyňský nábytek. Výběr materiálů vedl k trendové kombinaci barev dřevěný dekor / uni barva, ze které dále vycházely další úpravy interiéru domu.",
+      "description_en": "A young couple moving into their own family home led to the first major change — the kitchen. A larger workspace was needed and the old kitchen furniture was completely inadequate. The choice of materials led to a trendy combination of wood decor and solid colour, which then influenced further interior changes throughout the home.",
+      "photoGroups": {
+        "Realizace": ["rekonstrukce-kuchynskeho-interieru-026.jpg", "rekonstrukce-kuchynskeho-interieru-030.jpg", "rekonstrukce-kuchynskeho-interieru-031.jpg", "rekonstrukce-kuchynskeho-interieru-032.jpg", "rekonstrukce-kuchynskeho-interieru-033.jpg", "rekonstrukce-kuchynskeho-interieru-034.jpg", "rekonstrukce-kuchynskeho-interieru-035.jpg", "rekonstrukce-kuchynskeho-interieru-036.jpg", "rekonstrukce-kuchynskeho-interieru-037.jpg", "rekonstrukce-kuchynskeho-interieru-038.jpg", "rekonstrukce-kuchynskeho-interieru-039.jpg", "rekonstrukce-kuchynskeho-interieru-040.jpg", "rekonstrukce-kuchynskeho-interieru-041.jpg"],
+        "Původní": ["rekonstrukce-kuchynskeho-interieru-029.jpg"],
+        "3D": ["rekonstrukce-kuchynskeho-interieru-027.jpg", "rekonstrukce-kuchynskeho-interieru-028.jpg"]
+      }
+    },
+    {
+      "id": 2,
+      "num": "02",
+      "folder": "2. realizace Bílá nebo Bílá",
+      "title": "Rekonstrukce domu — Bílá nebo Bílá?",
+      "title_en": "House Renovation — White or White?",
+      "category": "rezidenční",
+      "design": "Tomáš Vlček / klient",
+      "realizace": "Tomáš Vlček",
+      "vyroba": "",
+      "description": "Čistota, světlo a vzdušnost. Projekt postavený na monochromní bílé paletě, která díky různým texturám a povrchům získává hloubku a charakter. Každý detail je promyšlený — od výběru materiálů po rozmístění nábytku.",
+      "description_en": "Purity, light and airiness. A project built on a monochromatic white palette that gains depth and character through different textures and surfaces. Every detail is carefully considered — from material selection to furniture placement.",
+      "photoGroups": {
+        "Realizace": ["1_SR.jpg","2_SR.jpg","3_SR.jpg","4_SR.jpg","5_SR.jpg","6_SR.jpg","7_SR.jpg","8_SR.jpg","9_SR.jpg","10_SR.jpg","11_SR.jpg","12_SR.jpg","13_SR.jpg","14_SR.jpg","15_SR.jpg"]
+      }
+    },
+    {
+      "id": 3,
+      "num": "03",
+      "folder": "3. realizace Černobilá realizace",
+      "title": "Černobílý interiér v novém domě",
+      "title_en": "Black & White Interior in a New Home",
+      "category": "rezidenční",
+      "design": "Tomáš Vlček / klient",
+      "realizace": "Tomáš Vlček",
+      "vyroba": "",
+      "description": "Kontrast jako designový princip. Projekt využívá dramatické napětí mezi černou a bílou — dvěma barvami, které spolu vytvářejí elegantní a nadčasový interiér s výraznou osobností.",
+      "description_en": "Contrast as a design principle. The project uses the dramatic tension between black and white — two colours that together create an elegant and timeless interior with a distinct personality.",
+      "photoGroups": {
+        "Realizace": ["1_MB.jpg","2_MB.jpg","3_MB.jpg","4_MB.jpg","5_MB.jpg","6_MB.jpg","7_MB.jpg","8_MB.jpg","9_MB.jpg","10_MB.jpg","11_MB.jpg","12_MB.jpg","13_MB.jpg"]
+      }
+    },
+    {
+      "id": 4,
+      "num": "04",
+      "folder": "4. realizace V klidu",
+      "title": "V klidu a pohodově",
+      "title_en": "In Peace and Comfort",
+      "category": "rezidenční",
+      "design": "Ing. arch. Jiří Vlček / klient",
+      "realizace": "Tomáš Vlček",
+      "vyroba": "INFINI a.s.",
+      "stavebni": "Kontrola stavební připravenosti",
+      "description": "Majitel domu již má něco odžito – a právě díky tomu přesně ví, co očekává od svého domova. V rozsáhlém projektu vybavení této rodinné rezidence se odráží nejen jeho životní zkušenosti, ale i touha po harmonii, pohodlí a estetické vyváženosti. Dominantním prvkem je dotek přírodních dřevin na nábytku a obkladech, který v kombinaci se zemitými tóny uni barev v ultramatu vytváří hřejivou a nadčasovou atmosféru.",
+      "description_en": "The homeowner has lived enough to know exactly what he expects from his home. This comprehensive project reflects not only his life experience but also a desire for harmony, comfort and aesthetic balance. The dominant element is the touch of natural wood on furniture and cladding, which in combination with earthy tones in ultra-matte finish creates a warm and timeless atmosphere.",
+      "photoGroups": {
+        "Realizace": ["1_KUCHYNĚ BRNO.png","2_KUCHYNĚ BRNO.png","3_KUCHYNĚ BRNO.png","4_KUCHYNĚ DETAIL DESKA.png","5_KUCHYNĚ DETAIL SKŘÍNĚ.png","6_KUCHYNĚ DETAIL.png","7_KUCHYNĚ DETAIL SPOTŘEBIČE DO ROVINY.png","8_KUCHYNĚ DETAIL DESKA.png","9_JÍDELNÍ STŮL.png","10_JÍDELNÍ STŮL DETAIL.png","11_HOSTOVSKÝ POKOJ BRNO.png","12_HOSTOVSKÝ POKOJ DETAIL.png","13_KOUPELNA HOST_POKOJ.png","14_ZÁDVEŘÍ_BRNO.png","15_ZÁDVEŘÍ DETAIL.png","16_KNIHOVNA BRNO.png","17_KNIHOVNA KŘESLO.png","18_KNIHOVNA DETAIL.png","19_KOUPELNA MASTER BRNO.png","20_KOUPELNA MASTER DETAIL BRNO.png","21_KLUB BRNO.png","22_KLUB BRNO DETAIL.png","23_KLUB BRNO DETAIL 1.png","24_KLUB BRNO DETAIL 2.png","25_GARÁŽ_BRNO.jpg","26_GARÁŽ BRNO.jpg"]
+      }
+    },
+    {
+      "id": 5,
+      "num": "05",
+      "folder": "5. realizace Rek staršího domu",
+      "title": "Rekonstrukce staršího domu",
+      "title_en": "Older House Renovation",
+      "category": "rezidenční",
+      "design": "Tomáš Vlček",
+      "realizace": "Tomáš Vlček",
+      "vyroba": "",
+      "description": "Přeměna staršího rodinného domu v moderní a funkční domov. Při zachování původního charakteru stavby byly doplněny moderní prvky, kvalitní materiály a chytrá úložná řešení.",
+      "description_en": "Transformation of an older family house into a modern and functional home. While preserving the original character of the building, modern elements, quality materials and smart storage solutions were added.",
+      "photoGroups": {
+        "Realizace": ["1_BŘEVNOV.jpg","2_BŘEVNOV.jpg","3_BŘEVNOV.jpg","4_BŘEVNOV.jpg","5_BŘEVNOV.jpg"]
+      }
+    },
+    {
+      "id": 6,
+      "num": "06",
+      "folder": "6. realizace Malý byt s velkým efektem",
+      "title": "Malý byt s velkým efektem",
+      "title_en": "Small Flat, Big Impact",
+      "category": "rezidenční",
+      "design": "Tomáš Vlček",
+      "realizace": "Tomáš Vlček",
+      "vyroba": "",
+      "description": "Důkaz, že i na malém prostoru lze dosáhnout velkého designového efektu. Každý centimetr je využit s rozmyslem — inteligentní dispozice, multifunkční nábytek a promyšlená barevná paleta.",
+      "description_en": "Proof that even a small space can achieve a big design impact. Every centimetre is used thoughtfully — intelligent layout, multifunctional furniture and a carefully chosen colour palette.",
+      "photoGroups": {
+        "Realizace": ["1_BRNO BYT.jpg","2_BRNO BYT.jpg","3_BRNO BYT.jpg","4_BRNO BYT.jpg","5_BRNO BYT.jpg","6_BRNO BYT.jpg","7_BRNO BYT.jpg","8_BRNO BYT.jpg","9_BRNO BYT.jpg","10_BRNO BYT.jpg"]
+      }
+    },
+    {
+      "id": 7,
+      "num": "07",
+      "folder": "7. realizace Nájem",
+      "title": "Připraveno pro nájem",
+      "title_en": "Prepared for Rental",
+      "category": "rezidenční",
+      "design": "Tomáš Vlček",
+      "realizace": "Tomáš Vlček",
+      "vyroba": "",
+      "description": "Nájem nemusí znamenat kompromis na designu. Tento projekt ukazuje, jak lze i pronajatý byt proměnit ve stylový a osobitý domov s minimálními zásahy do původní dispozice.",
+      "description_en": "Renting does not have to mean compromising on design. This project shows how even a rented flat can be transformed into a stylish and distinctive home with minimal changes to the original layout.",
+      "photoGroups": {
+        "Realizace": ["1_RUZYNĚ.jpg","2_RUZYNĚ.jpg","3_RUZYNĚ.jpg","4_RUZYNĚ.jpg","5_RUZYNĚ.jpg","6_RUZYNĚ.jpg","7_RUZYNĚ.jpg","8_RUZYNĚ.jpg","9_RUZYNĚ.jpg","10_RUZYNĚ.jpg","11_RUZYNĚ.jpg","12_RUZYNĚ.jpg","13_RUZYNĚ.jpg","14_RUZYNĚ.jpg","15_RUZYNĚ.jpg","16_RUZYNĚ.jpg","17_RUZYNĚ.jpg","18_RUZYNĚ.jpg"]
+      }
+    },
+    {
+      "id": 8,
+      "num": "08",
+      "folder": "8. realizace Výstava 2008 Miele",
+      "title": "Výstava Miele 2008",
+      "title_en": "Miele Exhibition 2008",
+      "category": "komerční",
+      "design": "Tomáš Vlček",
+      "realizace": "Tomáš Vlček",
+      "vyroba": "",
+      "description": "Návrh a realizace výstavního prostoru pro značku Miele. Projekt kladl důraz na prezentaci produktů v atraktivním a funkčním designovém prostředí.",
+      "description_en": "Design and realization of an exhibition space for the Miele brand. The project focused on presenting products in an attractive and functional design environment.",
+      "photoGroups": {
+        "Realizace": ["P9290018[W].jpg","P9290019[W].jpg","P9290021[W].jpg","P9290024[W].jpg"]
+      }
+    },
+    {
+      "id": 9,
+      "num": "09",
+      "folder": "9. realizace Dětský pokoj",
+      "title": "Rekonstrukce dětského pokoje",
+      "title_en": "Children's Room Renovation",
+      "category": "rezidenční",
+      "design": "Tomáš Vlček",
+      "realizace": "Tomáš Vlček",
+      "vyroba": "",
+      "description": "Hravý, bezpečný a zároveň estetický dětský pokoj, který poroste s dítětem. Flexibilní nábytek, stimulující prostředí a dostatek místa pro hraní i odpočinek.",
+      "description_en": "A playful, safe and aesthetically pleasing children's room that grows with the child. Flexible furniture, a stimulating environment and plenty of space for play and rest.",
+      "photoGroups": {
+        "Realizace": ["1-edit.jpg","2-edit.jpg","4-edit.jpg","6-edit.jpg","7-edit.jpg","8-edit.jpg","11-edit.jpg","12-edit.jpg","14-edit.jpg","17-edit.jpg","1_DĚT_POKOKJ.jpg"]
+      }
+    },
+    {
+      "id": 10,
+      "num": "10",
+      "folder": "10. realizace Kuchyň jako srdce",
+      "title": "Kuchyň jako srdce domova",
+      "title_en": "Kitchen as the Heart of Home",
+      "category": "rezidenční",
+      "design": "Tomáš Vlček / klient",
+      "realizace": "Tomáš Vlček",
+      "vyroba": "",
+      "description": "Kuchyň je srdcem každého domova. Tento projekt klade důraz na propojení estetiky a funkčnosti — pracovní prostor, který raduje oko i usnadňuje každodenní vaření.",
+      "description_en": "The kitchen is the heart of every home. This project emphasises the connection between aesthetics and functionality — a workspace that pleases the eye and makes everyday cooking easier.",
+      "photoGroups": {
+        "Realizace": ["1_KUCHYNĚ CHMELÍK.jpg","2_KUCHYNĚ_CHMELÍK.jpg","3_KUCHYNĚ_CHMELÍK.jpg","4_KUCHYNĚ_CHMELÍK.jpg","5_KUCHYNĚ_CHMELÍK.jpg","6_KUCHYNĚ_CHMELÍK.jpg","7_KUCHYNĚ_CHMELÍK.jpg","8_KUCHYNĚ_CHMELÍK.jpg","9_KUCHYNĚ_CHMELÍK.jpg","10_KUCHYNĚ_CHMELÍK.jpg"]
+      }
+    },
+    {
+      "id": 11,
+      "num": "11",
+      "folder": "11. realizace Kuchyň s duší",
+      "title": "Kuchyň v souladu s duší domova",
+      "title_en": "Kitchen in Harmony with the Home's Soul",
+      "category": "rezidenční",
+      "design": "arch. kancelář OBJECTUM s.r.o. / klient",
+      "realizace": "Tomáš Vlček",
+      "vyroba": "",
+      "description": "Každá kuchyň má svůj příběh. Tento projekt vytváří prostor, kde se vaří s radostí a kde se rodina ráda setkává — teplé materiály, kvalitní zpracování a promyšlené detaily.",
+      "description_en": "Every kitchen has its own story. This project creates a space where cooking is a joy and where the family loves to gather — warm materials, quality craftsmanship and thoughtful details.",
+      "photoGroups": {
+        "Realizace": ["1_Šafr.jpg","2_Šafr.jpg","3_Šafr.jpg","4_Šafr.jpg","5_Šafr.jpg","6_Šafr.jpg","7_Šafr.jpg","8_Šafr.jpg","9_Šafr.jpg"]
+      }
+    },
+    {
+      "id": 12,
+      "num": "12",
+      "folder": "12. realizace Studentsky pokoj",
+      "title": "Rekonstrukce studentského pokoje",
+      "title_en": "Student Room Renovation",
+      "category": "rezidenční",
+      "design": "Tomáš Vlček",
+      "realizace": "Tomáš Vlček",
+      "vyroba": "",
+      "description": "Funkční a stylové zázemí pro studenta. Projekt řeší chytré využití prostoru, dostatek úložných míst a příjemné prostředí pro studium i relaxaci.",
+      "description_en": "Functional and stylish accommodation for a student. The project addresses smart use of space, sufficient storage and a pleasant environment for study and relaxation.",
+      "photoGroups": {
+        "Realizace": ["1_POKOJ.jpg","2_POKOJ.jpg","3_POKOJ.jpg","4_POKOJ.jpg","5_POKOJ.jpg","6_POKOJ.jpg","7_POKOJ.jpg","8_POKOJ.jpg"]
+      }
+    },
+    {
+      "id": 13,
+      "num": "13",
+      "folder": "13. realizace Domu pro mladou rodinu",
+      "title": "Moderní dům pro mladou rodinu",
+      "title_en": "Modern Home for a Young Family",
+      "category": "rezidenční",
+      "design": "Tomáš Vlček",
+      "realizace": "Tomáš Vlček",
+      "vyroba": "",
+      "description": "Komplexní realizace interiéru rodinného domu pro mladou rodinu. Moderní dispozice, kvalitní materiály a promyšlené detaily vytvářejí domov, který je funkční i esteticky přitažlivý.",
+      "description_en": "Complete interior realization of a family home for a young family. Modern layout, quality materials and thoughtful details create a home that is both functional and aesthetically appealing.",
+      "photoGroups": {
+        "Realizace": ["TMA9526.jpg","TMA9548_1.jpg","TMA9582.jpg","TMA9609 kopie.jpg","TMA9616.jpg","TMA9631.jpg","TMA9656.jpg","TMA9665.jpg","TMA9708.jpg","TMA9714.jpg","TMA9726.jpg","TMA9754.jpg","TMA9784.jpg","TMA9814 kopie.jpg","TMA9823.jpg","TMA9838.jpg","TMA9844 2.jpg","TMA9877.jpg","TMA9894.jpg","stolek TON a svítido Floss.jpg"]
+      }
+    },
+    {
+      "id": 14,
+      "num": "14",
+      "folder": "14. realizace Bytový dům",
+      "title": "Bytový dům",
+      "title_en": "Apartment Building",
+      "category": "komerční",
+      "design": "Tomáš Vlček / klient",
+      "realizace": "Tomáš Vlček",
+      "vyroba": "",
+      "description": "Realizace bytového domu s důrazem na funkčnost a estetiku společných prostor i jednotlivých bytových jednotek.",
+      "description_en": "Realization of an apartment building with emphasis on the functionality and aesthetics of both common areas and individual apartment units.",
+      "photoGroups": {
+        "Realizace": ["DUM_1.jpg","DUM_2.jpg","DUM_3.jpg","DUM_4-scaled.jpg","DUM_5.jpg","DUM_6.jpg","DUM_7.jpg","DUM_8.jpg","DUM_9.jpg","DUM_10.jpg","DUM_11.jpg","DUM_12.jpg","DUM_13.jpg","DUM_14-scaled.jpg","DUM_15-scaled.jpg"]
+      }
+    }
+  ],
+  "inspirations": {
+    "folder": "Inspirace Dům 6",
+    "photos": ["01_12.jpg","02_12.jpg","03_12.jpg","04_12.jpg","05_12.jpg","06_12.jpg","07_12.jpg","08_12.jpg","09_12.jpg","10_12.jpg","projekt_1.jpg"]
+  }
 }
